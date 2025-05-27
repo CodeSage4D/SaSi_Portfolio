@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sanskrati Shukla, a passionate B.Tech CS student specializing in software development and innovation.">
+    <meta name="author" content="Sanskrati Shukla">
+    <meta name="keywords" content="portfolio, software engineer, Sanskrati Shukla, B.Tech, programming">
+    <title>Sanskrati Shukla - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="scroll-progress"></div>
+    <div class="mode-toggle">
+        <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    </div>
+    <nav class="navbar">
+        <div class="nav-logo">Sanskrati Shukla</div>
+        <ul class="nav-links">
+            <li><a href="#home"><img src="icons/home.png" alt="Home"> Home</a></li>
+            <li><a href="#about"><img src="icons/about.png" alt="About"> About</a></li>
+            <li><a href="#services"><img src="icons/services.png" alt="Services"> Services</a></li>
+            <li><a href="#skills"><img src="icons/skills.png" alt="Skills"> Skills</a></li>
+            <li><a href="#projects"><img src="icons/project.png" alt="Projects"> Projects</a></li>
+            <li><a href="#contact"><img src="icons/contact.png" alt="Contact"> Contact</a></li>
+        </ul>
+        <div class="nav-hamburger">☰</div>
+    </nav>
+    <section id="home" class="hero">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-content">
+            <div class="profile-container">
+                <img src="img/profilepicture.png" alt="Sanskrati Shukla" class="profile-img" loading="lazy">
+            </div>
+            <h1 class="text-slider">Hi, I'm <span>Sanskrati Shukla</span></h1>
+            <p class="tagline">B.Tech CS Student | Innovator | Code Enthusiast</p>
+            <a href="resume.pdf" class="resume-btn" download><img src="icons/download.png" alt="Download"> Download Resume</a>
+        </div>
+    </section>
+    <section id="about" class="section">
+        <h2><img src="icons/about.png" alt="About"> About Me</h2>
+        <div class="about-content">
+            <p class="typing-effect">Hello! I'm Sanskrati Shukla, a 1st-year B.Tech Computer Science student at Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore.</p>
+            <p>With a deep passion for coding, I specialize in creating efficient and innovative solutions using C/C++, Python, and Java. My journey in tech is driven by curiosity and a commitment to solving real-world problems through programming.</p>
+            <p>Currently interning at AURXON, I’m gaining practical experience in software development and automation. My goal is to build impactful projects that push the boundaries of technology and foster growth.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2024 - Present</h3>
+                        <p>B.Tech Computer Science, SVVV, Indore</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2025</h3>
+                        <p>Intern at AURXON</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="section">
+        <h2><img src="icons/services.png" alt="Services"> Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="icons/webdev.png" alt="Web Development">
+                <h3>Web Development</h3>
+                <p>Crafting responsive, user-friendly websites with modern technologies.</p>
+            </div>
+            <div class="service-card">
+                <img src="icons/algorithm.png" alt="Algorithm Design">
+                <h3>Algorithm Design</h3>
+                <p>Building optimized algorithms for efficient problem-solving.</p>
+            </div>
+            <div class="service-card">
+                <img src="icons/automation.png" alt="Automation">
+                <h3>Python Automation</h3>
+                <p>Automating repetitive tasks with Python scripts.</p>
+            </div>
+            <div class="service-card">
+                <img src="icons/data.png" alt="Data Analysis">
+                <h3>Data Analysis</h3>
+                <p>Extracting insights from data using Python tools.</p>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="section">
+        <h2><img src="icons/skills.png" alt="Skills"> Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-tooltip="Python: Automation & Data">
+                <img src="img/skills/python_skill.jpg" alt="Python Skill">
+                <span><img src="icons/python.png" alt="Python"> Python</span>
+            </div>
+            <div class="skill-card" data-tooltip="Java: OOP & Applications">
+                <img src="img/skills/java_skill.jpg" alt="Java Skill">
+                <span><img src="icons/java.png" alt="Java"> Java</span>
+            </div>
+            <div class="skill-card" data-tooltip="C: System Programming">
+                <img src="img/skills/c_skill.jpg" alt="C Skill">
+                <span><img src="icons/c.png" alt="C"> C</span>
+            </div>
+            <div class="skill-card" data-tooltip="C++: Competitive Coding">
+                <img src="img/skills/cpp_skill.jpg" alt="C++ Skill">
+                <span><img src="icons/cpp.png" alt="C++"> C++</span>
+            </div>
+        </div>
+        <div class="progress-bars">
+            <div>Data Structures<div class="progress" data-progress="85"></div></div>
+            <div>Algorithms<div class="progress" data-progress="80"></div></div>
+            <div>Web Development<div class="progress" data-progress="65"></div></div>
+            <div>Python Scripting<div class="progress" data-progress="70"></div></div>
+        </div>
+        <div class="badges">
+            <span class="badge" data-confetti><img src="icons/certification.png" alt="Certification"> HackerRank Certified</span>
+            <span class="badge" data-confetti><img src="icons/certification.png" alt="Certification"> LeetCode 100+ Problems</span>
+        </div>
+    </section>
+    <section id="projects" class="section">
+        <h2><img src="icons/project.png" alt="Projects"> Projects</h2>
+        <div class="project-carousel">
+            <div class="carousel-inner">
+                <div class="project-card" data-project="1">
+                    <img src="img/projects/task_manager.jpg" alt="Task Manager">
+                    <div class="project-overlay">Task Manager</div>
+                </div>
+                <div class="project-card" data-project="2">
+                    <img src="img/projects/portfolio.jpg" alt="Portfolio Website">
+                    <div class="project-overlay">Portfolio Website</div>
+                </div>
+                <div class="project-card" data-project="3">
+                    <img src="img/projects/data_visualizer.jpg" alt="Data Visualizer">
+                    <div class="project-overlay">Data Visualizer</div>
+                </div>
+                <div class="project-card" data-project="4">
+                    <img src="img/projects/algorithm_library.jpg" alt="Algorithm Library">
+                    <div class="project-overlay">Algorithm Library</div>
+                </div>
+            </div>
+            <button class="carousel-btn prev">❮</button>
+            <button class="carousel-btn next">❯</button>
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <h2><img src="icons/contact.png" alt="Contact"> Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required class="form-input">
+            <input type="email" name="email" placeholder="Your Email" required class="form-input">
+            <textarea name="message" placeholder="Your Message" required class="form-input"></textarea>
+            <button type="submit" class="contact-btn"><img src="icons/send.png" alt="Send"> Send Message</button>
+        </form>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+            <a href="mailto:sanskratishukla8@gmail.com" class="social-icon"><img src="icons/email.png" alt="Email"></a>
+            <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon"><img src="icons/github.png" alt="GitHub"></a>
+        </div>
+    </section>
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">×</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Sanskrati Shukla. All rights reserved.</p>
+        <p>Designed with 💜 by Sanskrati</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
