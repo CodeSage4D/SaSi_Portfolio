@@ -1,89 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
-        themeToggle.textContent = '☀️';
+        themeToggle.querySelector('span').textContent = 'light_mode';
     }
-
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        themeToggle.textContent = isDark ? '☀️' : '🌙';
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeToggle.querySelector('span').textContent = document.body.classList.contains('dark-mode') ? 'light_mode' : 'dark_mode';
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
 
     // Custom Cursor
     const cursor = document.querySelector('.custom-cursor');
+    const trail = document.querySelector('.cursor-trail');
+    let trailPos = [];
     document.addEventListener('mousemove', e => {
         cursor.style.left = `${e.clientX}px`;
         cursor.style.top = `${e.clientY}px`;
+        trailPos.push({ x: e.clientX, y: e.clientY });
+        if (trailPos.length > 5) trailPos.shift();
+        trail.style.left = `${trailPos[0]?.x || e.clientX}px`;
+        trail.style.top = `${trailPos[0]?.y || e.clientY}px`;
     });
-
-    document.querySelectorAll('a, button, .project-card, .skill-card').forEach(el => {
+    document.querySelectorAll('a, button, .project-card, .skill-card, .badge').forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('glow'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('glow'));
     });
 
     // Hamburger Menu
     const hamburger = document.querySelector('.nav-hamburger');
-    const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        const nav = document.querySelector('#navbarNav');
+        hamburger.querySelector('span').textContent = nav.classList.contains('show') ? 'menu' : 'close';
     });
 
     // Smooth Scroll
-    document.querySelectorAll('.nav-links a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+        anchor.addEventListener('click', e => {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            target.scrollIntoView({ behavior: 'smooth' });
-            if (window.innerWidth <= 768) {
-                navLinks.classList.remove('active');
-                hamburger.textContent = '☰';
-            }
+            document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
     });
 
-    // Text Slider
-    const slider = document.querySelector('.text-slider span');
-    const texts = [
-        'Sanskrati Shukla',
-        'Code Enthusiast',
-        'Problem Solver',
-        'Future Innovator'
-    ];
-    let index = 0;
-    function updateSlider() {
-        slider.style.opacity = 0;
-        setTimeout(() => {
-            slider.textContent = texts[index];
-            slider.style.opacity = 1;
-            index = (index + 1) % texts.length;
-        }, 600);
+    // Typing Name Animation
+    const typingName = document.querySelector('.typing-name');
+    const name = 'Sanskrati Shukla';
+    let nameIndex = 0;
+    function typeName() {
+        if (nameIndex < name.length) {
+            typingName.textContent += name[nameIndex++];
+            setTimeout(typeName, 150);
+        }
     }
-    updateSlider();
-    setInterval(updateSlider, 3500);
+    typeName();
+
+    // Hero Content Slider
+    const sliderItems = document.querySelectorAll('.slider-item');
+    let sliderIndex = 0;
+    function updateContentSlider() {
+        sliderItems.forEach(item => item.classList.remove('active'));
+        sliderItems[sliderIndex].classList.add('active');
+        sliderIndex = (sliderIndex + 1) % sliderItems.length;
+    }
+    updateContentSlider();
+    setInterval(updateContentSlider, 5000);
 
     // Particle Background
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
-    const particles = [];
-    for (let i = 0; i < 100; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 2 + 1,
-            vx: Math.random() * 2 - 1,
-            vy: Math.random() * 2 - 1
-        });
-    }
-
+    const particles = Array.from({ length: 100 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        vx: Math.random() * 1 - 0.5,
+        vy: Math.random() * 1 - 0.5
+    }));
     function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => {
@@ -99,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animateParticles);
     }
     animateParticles();
-
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -109,8 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        document.querySelector('.scroll-progress').style.width = `${progress}%`;
+        document.querySelector('.scroll-progress').style.width = `${(scrollTop / docHeight) * 100}%`;
     });
 
     // Scroll Reveal
@@ -118,21 +110,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'scrollReveal 1s forwards';
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        observer.observe(section);
+    });
 
-    // Progress Bar Animation
+    // Side Skills Animation
+    const sideSkills = document.querySelectorAll('.side-skill');
+    const skillObserver = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+                entry.target.style.transitionDelay = `${i * 0.2}s`;
+            }
+        });
+    }, { threshold: 0.5 });
+    sideSkills.forEach(skill => skillObserver.observe(skill));
+
+    // Progress Bars
     const progressBars = document.querySelectorAll('.progress');
     const progressObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const bar = entry.target;
-                const width = bar.getAttribute('data-progress');
-                bar.style.width = `${width}%`;
+                entry.target.style.width = `${entry.target.getAttribute('data-progress')}%`;
             }
         });
     }, { threshold: 0.5 });
@@ -144,51 +152,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.carousel-btn.prev');
     const nextBtn = document.querySelector('.carousel-btn.next');
     let carouselIndex = 0;
-
     function updateCarousel() {
-        const cardWidth = projectCards[0].offsetWidth + 20;
+        const cardWidth = projectCards[0].offsetWidth + 16;
         carouselInner.style.transform = `translateX(-${carouselIndex * cardWidth}px)`;
     }
-
-    nextBtn.addEventListener('click', () => {
-        if (carouselIndex < projectCards.length - 1) {
-            carouselIndex++;
-            updateCarousel();
-        }
-    });
-
     prevBtn.addEventListener('click', () => {
         if (carouselIndex > 0) {
             carouselIndex--;
             updateCarousel();
         }
     });
+    nextBtn.addEventListener('click', () => {
+        if (carouselIndex < projectCards.length - 1) {
+            carouselIndex++;
+            updateCarousel();
+        }
+    });
+    window.addEventListener('resize', updateCarousel);
 
     // Project Modal
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
     const closeModal = document.querySelector('.modal-close');
-
     const projectDetails = {
-        1: {
-            title: 'Task Manager',
-            description: 'A Python-based CLI tool for task management with automation features, including reminders and prioritization.'
-        },
-        2: {
-            title: 'Portfolio Website',
-            description: 'A responsive, single-page portfolio showcasing my skills and projects, built with HTML, CSS, and JavaScript.'
-        },
-        3: {
-            title: 'Data Visualizer',
-            description: 'A Python application for creating interactive data visualizations using matplotlib and pandas.'
-        },
-        4: {
-            title: 'Algorithm Library',
-            description: 'A C++ library of data structures and algorithms optimized for competitive programming.'
-        }
+        1: { title: 'Task Manager', description: 'Python CLI tool for task automation with reminders.' },
+        2: { title: 'Portfolio Website', description: 'Responsive portfolio using HTML, CSS, JS.' },
+        3: { title: 'Data Visualizer', description: 'Interactive data visualization tool in Python.' },
+        4: { title: 'Algorithm Library', description: 'C++ library for competitive programming.' }
     };
-
     projectCards.forEach(card => {
         card.addEventListener('click', () => {
             const projectId = card.getAttribute('data-project');
@@ -197,50 +189,42 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'flex';
         });
     });
-
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
+    closeModal.addEventListener('click', () => modal.style.display = 'none');
     window.addEventListener('click', e => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
+        if (e.target === modal) modal.style.display = 'none';
     });
 
-    // Contact Form
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', async e => {
+    // Contact Form Validation
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', e => {
         e.preventDefault();
-        const name = form.querySelector('input[name="name"]').value;
-        const email = form.querySelector('input[name="email"]').value;
-        const message = form.querySelector('textarea[name="message"]').value;
-
-        if (name.length < 3) {
-            alert('Name must be at least 3 characters.');
-            return;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            alert('Please enter a valid email.');
-            return;
-        }
-        if (message.length < 15) {
-            alert('Message must be at least 15 characters.');
-            return;
-        }
-
+        const name = contactForm.querySelector('input[name="name"]').value.trim();
+        const email = contactForm.querySelector('input[name="email"]').value.trim();
+        const message = contactForm.querySelector('textarea').value.trim();
+        if (name.length < 3) return alert('Name must be at least 3 characters.');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return alert('Invalid email format.');
+        if (message.length < 10) return alert('Message must be at least 10 characters.');
         alert('Message sent to sanskratishukla8@gmail.com!');
-        form.reset();
+        contactForm.reset();
     });
+
+    // Random Quote
+    const quotes = [
+        'Code is poetry in motion.',
+        'Innovation drives progress.',
+        'Learning fuels growth.',
+        'Tech shapes the future.'
+    ];
+    const quoteContainer = document.getElementById('random-quote');
+    quoteContainer.textContent = quotes[Math.floor(Math.random() * quotes.length)];
 
     // Parallax Effect
     window.addEventListener('scroll', () => {
         const hero = document.querySelector('.hero');
-        const scrollPosition = window.pageYOffset;
-        hero.style.backgroundPositionY = `${scrollPosition * 0.3}px`;
+        hero.style.backgroundPositionY = `${window.pageYOffset * 0.3}px`;
     });
 
-    // Skill Card 3D Tilt
+    // Skill Card Tilt
     const skillCards = document.querySelectorAll('.skill-card');
     skillCards.forEach(card => {
         card.addEventListener('mousemove', e => {
@@ -249,8 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const tiltX = (centerY - y) / 15;
-            const tiltY = (x - centerX) / 15;
+            const tiltX = (centerY - y) / 20;
+            const tiltY = (x - centerX) / 20;
             card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
         });
         card.addEventListener('mouseleave', () => {
@@ -263,31 +247,36 @@ document.addEventListener('DOMContentLoaded', () => {
     badges.forEach(badge => {
         badge.addEventListener('mouseenter', () => {
             const rect = badge.getBoundingClientRect();
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 15; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
+                confetti.style.position = 'absolute';
+                confetti.style.width = '8px';
+                confetti.style.height = '8px';
+                confetti.style.background = '#DD88CF';
                 confetti.style.left = `${rect.left + Math.random() * rect.width}px`;
                 confetti.style.top = `${rect.top}px`;
-                confetti.style.background = '#DD88CF';
+                confetti.style.transform = `translateY(-${Math.random() * 100}px) rotate(${Math.random() * 360}deg)`;
+                confetti.style.transition = 'all 1s ease-out';
                 document.body.appendChild(confetti);
                 setTimeout(() => confetti.remove(), 1000);
             }
         });
     });
 
-    // Lazy Loading Images
+    // Lazy Load Images
     const images = document.querySelectorAll('img[loading="lazy"]');
     const imageObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const img = entry.target;
-                img.style.opacity = 1;
-                imageObserver.unobserve(img);
+                entry.target.style.opacity = '1';
+                imageObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.2 });
     images.forEach(img => {
-        img.style.opacity = 0;
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s';
         imageObserver.observe(img);
     });
 });
