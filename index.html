@@ -1,98 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Sanskrati Shukla, B.Tech CS student specializing in software development and innovation.">
+    <meta name="description"
+        content="Portfolio of Sanskrati Shukla, B.Tech CS student specializing in software development and innovation.">
     <meta name="author" content="Sanskrati Shukla">
-    <meta name="keywords" content="portfolio, Sanskrati Shukla, B.Tech, software engineer, AURXON, SVVV">
+    <meta name="keywords"
+        content="portfolio, Sanskrati Shukla, B.Tech, software engineer, AURXON, SVVV, developer, coder">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Sanskrati Shukla - Portfolio">
+    <meta property="og:description"
+        content="Portfolio of Sanskrati Shukla, B.Tech CS student specializing in software development and innovation.">
+    <meta property="og:image" content="./img/profile_sasi.png">
+    <meta property="og:url" content="https://sanskratishukla.com">
+    <meta property="og:type" content="website">
     <title>Sanskrati Shukla - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="https://fonts.gstatic.com/s/i/materialiconsoutlined/favicon/v13/favicon.ico">
-    <style>
-        .hero { background: linear-gradient(135deg, #F8E7F6, #DD88CF); }
-        .section { backdrop-filter: blur(12px); background: rgba(245, 245, 245, 0.2); }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 </head>
+
 <body>
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
     <div class="custom-cursor"></div>
-    <div class="cursor-trail"></div>
+    <div class="cursor-orb"></div>
     <div class="scroll-progress"></div>
     <div class="mode-toggle">
-        <button id="theme-toggle" class="btn btn-dark" aria-label="Toggle Theme"><span class="material-symbols-outlined">dark_mode</span></button>
+        <button id="theme-toggle" class="btn" aria-label="Toggle Theme"><span
+                class="material-symbols-outlined">dark_mode</span></button>
     </div>
+    <div class="social-sidebar">
+        <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon" aria-label="LinkedIn"><span
+                class="material-symbols-outlined">link</span></a>
+        <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"><span
+                class="material-symbols-outlined">email</span></a>
+        <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon" aria-label="GitHub"><span
+                class="material-symbols-outlined">code</span></a>
+        <a href="https://leetcode.com/u/sanskratishuklaa" target="_blank" class="social-icon"
+            aria-label="LeetCode"><span class="material-symbols-outlined">verified</span></a>
+        <a href="https://twitter.com/sanskratishukla" target="_blank" class="social-icon" aria-label="Twitter"><span
+                class="material-symbols-outlined">share</span></a>
+    </div>
+    <button id="back-to-top" class="back-to-top btn" aria-label="Back to Top"><span
+            class="material-symbols-outlined">arrow_upward</span></button>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand nav-logo" href="#">Sanskrati Shukla</a>
-            <button class="navbar-toggler nav-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler nav-hamburger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="material-symbols-outlined">menu</span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto nav-links">
-                    <li class="nav-item"><a class="nav-link" href="#home"><span class="material-symbols-outlined">home</span> Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about"><span class="material-symbols-outlined">person</span> About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services"><span class="material-symbols-outlined">build</span> Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills"><span class="material-symbols-outlined">code</span> Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects"><span class="material-symbols-outlined">work</span> Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact"><span class="material-symbols-outlined">mail</span> Contact</a></li>
+                <ul class="navbar-nav ms-auto nav-links d-flex">
+                    <li class="nav-item"><a class="nav-link" href="#home" aria-label="Home"><span
+                                class="material-symbols-outlined">home</span> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" aria-label="About"><span
+                                class="material-symbols-outlined">person</span> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education" aria-label="Education"><span
+                                class="material-symbols-outlined">school</span> Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services" aria-label="Services"><span
+                                class="material-symbols-outlined">build</span> Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" aria-label="Skills"><span
+                                class="material-symbols-outlined">code</span> Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" aria-label="Projects"><span
+                                class="material-symbols-outlined">work</span> Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications" aria-label="Certifications"><span
+                                class="material-symbols-outlined">verified</span> Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog" aria-label="Blog"><span
+                                class="material-symbols-outlined">article</span> Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Contact"><span
+                                class="material-symbols-outlined">mail</span> Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <section id="home" class="hero">
-        <canvas id="particle-canvas"></canvas>
-        <div class="container hero-content">
-            <div class="row align-items-center">
+    <section id="home" class="hero"
+        style="position: relative; min-height: calc(100vh - 80px); background: linear-gradient(135deg, #87ceeb, #007bff); padding-top: 80px; display: flex; align-items: center; justify-content: center; z-index: 0; animation: bgGradient 15s ease infinite;">
+        <canvas id="particle-canvas"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
+        <div class="container hero-content d-flex flex-column align-items-center">
+            <div class="hero-spacer" style="height: 80px;"></div>
+            <div class="row align-items-center w-100">
                 <div class="col-12 col-md-6 text-center">
-                    <div class="profile-container">
-                        <img src="img/profile_sasi.jpg" alt="Sanskrati Shukla" class="profile-img img-fluid" loading="lazy">
+                    <div class="profile-container" style="perspective: 1000px; margin-top: 20px;">
+                        <img src="./img/profile_sasi.jpg" onerror="this.src='https://via.placeholder.com/200'"
+                            alt="Sanskrati Shukla" class="profile-img img-fluid" loading="lazy"
+                            style="max-width: 250px; width: 100%; border-radius: 50%; border: 6px solid #ffffff; object-fit: cover; transition: transform 0.8s ease;">
+                    </div>
+                    <div id="three-cubes" class="three-cubes"
+                        style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; z-index: -1;">
                     </div>
                 </div>
-                <div class="col-12 col-md-6 text-center">
-                    <h1 class="text-slider">Hi, I'm <span class="typing-name"></span></h1>
-                    <p class="tagline">B.Tech CS '28 | Developer | Innovator</p>
-                    <div class="slider-content">
-                        <div class="slider-item active">
-                            <span class="material-symbols-outlined">business_center</span>
-                            <p>Software Intern at AURXON, 2025</p>
+                <div class="col-12 col-md-6 text-center"
+                    style="padding: 40px 20px; font-family: 'Segoe UI', sans-serif;">
+                    <h1 class="text-slider"
+                        style="font-size: 2.5rem; font-weight: bold; color: #1b263b; margin: 2rem 0; animation: textFade 1s ease;">
+                        Hi, I'm
+                        <span class="typing-name"
+                            style="display: inline-block; border-right: 2px solid #007bff; white-space: nowrap; overflow: hidden; animation: typing 3s steps(30, end), blink 0.75s step-end infinite; color: #007bff; max-width: 0;">
+                            Sanskrati Shukla
+                        </span>
+                    </h1>
+                    <p class="tagline"
+                        style="font-size: 1.2rem; margin-top: 10px; color: #6c757d; animation: subtitleFade 1s ease 1s forwards;">
+                        B.Tech CS '28 | Developer | Innovator | Problem Solver
+                    </p>
+                    <div class="slider-content d-flex flex-column align-items-center" style="margin-top: 20px;">
+                        <div class="slider-item active d-flex align-items-center"
+                            style="gap: 10px; font-size: 1rem; color: #555;">
+                            <span class="material-symbols-outlined"
+                                style="color: #007bff; font-size: 2rem;">business_center</span>
+                            <p style="margin: 0; color: #1b263b;">Software Intern at AURXON, 2025</p>
                         </div>
-                        <div class="slider-item">
-                            <span class="material-symbols-outlined">school</span>
-                            <p>B.Tech CS at SVVV, Indore</p>
+                        <div class="slider-item d-flex align-items-center"
+                            style="gap: 10px; font-size: 1rem; color: #555; display: none; opacity: 0; animation: itemFade 1s forwards;">
+                            <span class="material-symbols-outlined"
+                                style="color: #007bff; font-size: 2rem;">school</span>
+                            <p style="margin: 0; color: #1b263b;">B.Tech CS at SVVV, Indore</p>
+                        </div>
+                        <div class="slider-item d-flex align-items-center"
+                            style="gap: 10px; font-size: 1rem; color: #555; display: none; opacity: 0; animation: itemFade 1s forwards;">
+                            <span class="material-symbols-outlined" style="color: #007bff; font-size: 2rem;">code</span>
+                            <p style="margin: 0; color: #1b263b;">Competitive Programmer at LeetCode</p>
                         </div>
                     </div>
-                    <a href="resume.pdf" class="resume-btn btn btn-primary" download><span class="material-symbols-outlined">download</span> Download Resume</a>
+                    <a href="resume.pdf" class="resume-btn btn" download aria-label="Download Resume"
+                        style="padding: 0.8rem 2rem; border-radius: 30px; background: #007bff; border: none; color: #ffffff; transition: all 0.3s ease; margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); position: relative; overflow: hidden;">
+                        <span class="material-symbols-outlined" style="font-size: 1.5rem;">download</span>
+                        Download Resume
+                        <span class="btn-overlay"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.2); transform: translateX(-100%); transition: transform 0.5s ease;"></span>
+                    </a>
                 </div>
             </div>
         </div>
+        <style>
+            @keyframes typing {
+                from {
+                    max-width: 0;
+                }
+
+                to {
+                    max-width: 300px;
+                }
+            }
+
+            @keyframes blink {
+                50% {
+                    border-color: transparent;
+                }
+            }
+
+            @keyframes textFade {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes subtitleFade {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes itemFade {
+                0% {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes bgGradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            @keyframes btnPulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+                }
+
+                70% {
+                    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+                }
+
+                100% {
+                    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+                }
+            }
+
+            .resume-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px #a8e6ff;
+                animation: btnPulse 1s infinite;
+            }
+
+            .resume-btn:hover .btn-overlay {
+                transform: translateX(0);
+            }
+
+            .resume-btn:focus {
+                outline: 2px solid #007bff;
+                outline-offset: 2px;
+            }
+
+            .dark-mode .resume-btn {
+                background: linear-gradient(145deg, #00cc00, #b266ff);
+            }
+
+            .dark-mode .resume-btn:hover {
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            }
+
+            .dark-mode .resume-btn:focus {
+                outline-color: #b266ff;
+            }
+        </style>
     </section>
     <section id="about" class="section">
         <div class="container">
-            <h2><span class="material-symbols-outlined">person</span> About Me</h2>
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">person</span>
+                About Me</h2>
             <div class="row">
-                <div class="col-12 col-lg-8 mx-auto">
-                    <p class="typing-effect">I'm Sanskrati Shukla, a 1st-year B.Tech CS student at Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore.</p>
-                    <p>Passionate about coding, I specialize in C/C++, Python, and Java, with a focus on Data Structures and Algorithms.</p>
-                    <p>Interning at AURXON, I'm gaining hands-on experience in software development and automation.</p>
-                    <p>My mission is to create innovative, efficient solutions that impact the tech world positively.</p>
+                <div class="col-12 col-lg-8 mx-auto about-content">
+                    <p class="about-intro typing-effect">Hey, I'm Sanskrati Shukla, a B.Tech CS student</p>
+                    <p class="about-intro typing-effect">crafting code with a spark of innovation!</p>
+                    <p class="about-text">Currently pursuing my B.Tech in Computer Science at Manipal Institute of
+                        Technology, Manipal, I'm deeply passionate about technology and its potential to solve
+                        real-world problems.</p>
+                    <p class="about-text">My expertise lies in C/C++, Python, and Java, with a strong focus on Data
+                        Structures and Algorithms, which I practice regularly on platforms like LeetCode.</p>
+                    <p class="about-text">As a Software Intern at AURXON since January 2025, I've been working on
+                        automation tools, streamlining workflows, and building solutions that enhance productivity.</p>
+                    <p class="about-text">I thrive on challenges and continuously seek to expand my skill set, whether
+                        it's through competitive programming, web development, or exploring new technologies.</p>
+                    <p class="about-text">My goal is to create impactful technology that pushes boundaries and sparks
+                        change. I'm always eager to collaborate on innovative projects—let's build something amazing
+                        together!</p>
                     <div class="timeline">
-                        <div class="timeline-item">
+                        <div class="timeline-item" data-year="2024 - Present">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <h3>2024 - Present</h3>
-                                <p>B.Tech in Computer Science, SVVV, Indore</p>
-                                <p>Studying core CS concepts and programming.</p>
+                                <p>B.Tech in Computer Science, Manipal Institute of Technology, Manipal</p>
+                                <p>Building a strong foundation in computer science with a focus on coding and
+                                    problem-solving.</p>
                             </div>
                         </div>
-                        <div class="timeline-item">
+                        <div class="timeline-item" data-year="Jan 2025 - Present">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <h3>Jan 2025 - Present</h3>
                                 <p>Software Intern at AURXON</p>
-                                <p>Building automation tools and software solutions.</p>
+                                <p>Developing automation tools and real-world software solutions to improve efficiency.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2024 - Present">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>2024 - Present</h3>
+                                <p>Competitive Programmer</p>
+                                <p>Solving 100+ problems on LeetCode and participating in coding contests to sharpen my
+                                    skills.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume-buttons d-flex gap-3 justify-content-center mt-4">
+                        <a href="resume.pdf" class="resume-btn btn" download aria-label="Download PDF Resume"><span
+                                class="material-symbols-outlined">download</span> Download PDF Resume</a>
+                        <a href="resume.docx" class="resume-btn btn" download aria-label="Download DOCX Resume"><span
+                                class="material-symbols-outlined">download</span> Download DOCX Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">school</span>
+                Education</h2>
+            <div class="row">
+                <div class="col-12 col-lg-8 mx-auto">
+                    <div class="timeline">
+                        <div class="timeline-item" data-year="2024 - 2028">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>2024 - 2028 (Expected)</h3>
+                                <p>B.Tech in Computer Science</p>
+                                <p>Manipal Institute of Technology, Manipal</p>
+                                <p>CGPA: 8.5 (as of 2025)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2022 - 2024">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>2022 - 2024</h3>
+                                <p>Higher Secondary Education</p>
+                                <p>Delhi Public School, Delhi</p>
+                                <p>Percentage: 92%</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-year="2020 - 2022">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>2020 - 2022</h3>
+                                <p>Secondary Education</p>
+                                <p>St. Mary's School, Mumbai</p>
+                                <p>Percentage: 95%</p>
                             </div>
                         </div>
                     </div>
@@ -102,129 +356,332 @@
     </section>
     <section id="services" class="section">
         <div class="container">
-            <h2><span class="material-symbols-outlined">build</span> Services</h2>
-            <div class="row services-grid">
-                <div class="col-12 col-sm-6 col-md-3 service-card">
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">build</span>
+                Services</h2>
+            <div class="services-grid d-flex flex-wrap justify-content-center gap-4">
+                <div class="service-card">
+                    <span class="material-symbols-outlined">code</span>
+                    <h3>Software Development</h3>
+                    <p>Building efficient and scalable software solutions.</p>
+                </div>
+                <div class="service-card">
                     <span class="material-symbols-outlined">web</span>
                     <h3>Web Development</h3>
-                    <p>Building responsive websites with HTML, CSS, JS, Bootstrap.</p>
+                    <p>Creating responsive and interactive websites.</p>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 service-card">
-                    <span class="material-symbols-outlined">functions</span>
-                    <h3>Algorithm Design</h3>
-                    <p>Creating optimized algorithms for performance.</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 service-card">
-                    <span class="material-symbols-outlined">smart_toy</span>
-                    <h3>Python Automation</h3>
-                    <p>Automating workflows with Python scripts.</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 service-card">
+                <div class="service-card">
                     <span class="material-symbols-outlined">analytics</span>
                     <h3>Data Analysis</h3>
-                    <p>Extracting insights from datasets.</p>
+                    <p>Analyzing data to derive actionable insights.</p>
                 </div>
             </div>
         </div>
     </section>
     <section id="skills" class="section">
         <div class="container">
-            <h2><span class="material-symbols-outlined">code</span> Skills</h2>
-            <div class="row skills-grid">
-                <div class="col-12 col-sm-6 col-md-3 skill-card" data-tooltip="Python: Automation & Scripting">
-                    <img src="img/skills/python-img.jpg" alt="Python" class="skill-img img-fluid" loading="lazy">
-                    <h4><span class="material-symbols-outlined">code</span> Python</h4>
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                Skills</h2>
+            <div class="skills-grid d-flex flex-wrap justify-content-center gap-4">
+                <div class="skill-card" data-tooltip="Python: Automation & Scripting">
+                    <img src="./img/skills/python-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                        alt="Python" class="skill-img img-fluid" loading="lazy">
+                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> Python
+                    </h4>
+                    <div class="skill-progress" data-progress="90"></div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 skill-card" data-tooltip="Java: Object-Oriented Programming">
-                    <img src="img/skills/java-img.jpg" alt="Java" class="skill-img img-fluid" loading="lazy">
-                    <h4><span class="material-symbols-outlined">code</span> Java</h4>
+                <div class="skill-card" data-tooltip="Java: Object-Oriented Programming">
+                    <img src="./img/skills/java-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="Java"
+                        class="skill-img img-fluid" loading="lazy">
+                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> Java</h4>
+                    <div class="skill-progress" data-progress="85"></div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 skill-card" data-tooltip="C: System Programming">
-                    <img src="img/skills/c-img.jpg" alt="C" class="skill-img img-fluid" loading="lazy">
-                    <h4><span class="material-symbols-outlined">code</span> C</h4>
+                <div class="skill-card" data-tooltip="C: System Programming">
+                    <img src="./img/skills/c-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="C"
+                        class="skill-img img-fluid" loading="lazy">
+                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> C</h4>
+                    <div class="skill-progress" data-progress="80"></div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 skill-card" data-tooltip="C++: Competitive Coding">
-                    <img src="img/skills/cpp-img.jpg" alt="C++" class="skill-img img-fluid" loading="lazy">
-                    <h4><span class="material-symbols-outlined">code</span> C++</h4>
+                <div class="skill-card" data-tooltip="C++: Competitive Coding">
+                    <img src="./img/skills/cpp-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="C++"
+                        class="skill-img img-fluid" loading="lazy">
+                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> C++</h4>
+                    <div class="skill-progress" data-progress="85"></div>
+                </div>
+                <div class="skill-card" data-tooltip="JavaScript: Web Development">
+                    <img src="./img/skills/js-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                        alt="JavaScript" class="skill-img img-fluid" loading="lazy">
+                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> JavaScript
+                    </h4>
+                    <div class="skill-progress" data-progress="70"></div>
+                </div>
+                <div class="skill-card" data-tooltip="HTML: Web Structure">
+                    <img src="./img/skills/html-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="HTML"
+                        class="skill-img img-fluid" loading="lazy">
+                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> HTML</h4>
+                    <div class="skill-progress" data-progress="90"></div>
+                </div>
+                <div class="skill-card" data-tooltip="CSS: Web Styling">
+                    <img src="./img/skills/css-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="CSS"
+                        class="skill-img img-fluid" loading="lazy">
+                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> CSS</h4>
+                    <div class="skill-progress" data-progress="85"></div>
                 </div>
             </div>
-            <div class="side-skills">
-                <div class="side-skill"><span class="material-symbols-outlined">code</span> Python</div>
-                <div class="side-skill"><span class="material-symbols-outlined">code</span> Java</div>
-                <div class="side-skill"><span class="material-symbols-outlined">code</span> C</div>
-                <div class="side-skill"><span class="material-symbols-outlined">code</span> C++</div>
+            <div class="side-skills d-flex flex-column gap-2">
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                    Python</div>
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                    Java</div>
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span> C
+                </div>
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                    C++</div>
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                    JavaScript</div>
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                    HTML</div>
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                    CSS</div>
+                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
+                    SQL</div>
             </div>
-            <div class="progress-bars">
-                <div class="progress-item">
+            <div class="progress-circles d-flex flex-wrap justify-content-center gap-4">
+                <div class="progress-circle" data-progress="85">
+                    <svg class="circle-svg" viewBox="0 0 100 100">
+                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
+                    </svg>
                     <span>Data Structures</span>
-                    <div class="progress" data-progress="85"></div>
                 </div>
-                <div class="progress-item">
+                <div class="progress-circle" data-progress="80">
+                    <svg class="circle-svg" viewBox="0 0 100 100">
+                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
+                    </svg>
                     <span>Algorithms</span>
-                    <div class="progress" data-progress="80"></div>
                 </div>
-                <div class="progress-item">
+                <div class="progress-circle" data-progress="65">
+                    <svg class="circle-svg" viewBox="0 0 100 100">
+                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
+                    </svg>
                     <span>Web Development</span>
-                    <div class="progress" data-progress="65"></div>
                 </div>
-                <div class="progress-item">
+                <div class="progress-circle" data-progress="70">
+                    <svg class="circle-svg" viewBox="0 0 100 100">
+                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
+                    </svg>
                     <span>Python Scripting</span>
-                    <div class="progress" data-progress="70"></div>
+                </div>
+                <div class="progress-circle" data-progress="60">
+                    <svg class="circle-svg" viewBox="0 0 100 100">
+                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <span>Database Management</span>
                 </div>
             </div>
-            <div class="badges">
-                <span class="badge" data-confetti><span class="material-symbols-outlined">verified</span> HackerRank Certified</span>
-                <span class="badge" data-confetti><span class="material-symbols-outlined">verified</span> LeetCode 100+ Problems</span>
+            <div class="badges d-flex justify-content-center gap-2">
+                <span class="badge d-flex align-items-center" data-confetti><span
+                        class="material-symbols-outlined">verified</span> HackerRank Certified</span>
+                <span class="badge d-flex align-items-center" data-confetti><span
+                        class="material-symbols-outlined">verified</span> LeetCode 100+ Problems</span>
+                <span class="badge d-flex align-items-center" data-confetti><span
+                        class="material-symbols-outlined">verified</span> CodeChef 3-Star</span>
+                <span class="badge d-flex align-items-center" data-confetti><span
+                        class="material-symbols-outlined">verified</span> AWS Certified</span>
             </div>
         </div>
     </section>
     <section id="projects" class="section">
         <div class="container">
-            <h2><span class="material-symbols-outlined">work</span> Projects</h2>
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">work</span>
+                Projects</h2>
             <div class="project-carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner d-flex">
                     <div class="project-card" data-project="1">
-                        <img src="img/projects/task.jpg" alt="Task Manager" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">Task Manager</div>
+                        <img src="./img/projects/task.jpg" onerror="this.src='https://via.placeholder.com/250'"
+                            alt="Task Manager" class="project-img img-fluid" loading="lazy">
+                        <div class="project-overlay">
+                            <h4>Task Manager</h4>
+                            <p>Tags: Python, CLI</p>
+                        </div>
                     </div>
                     <div class="project-card" data-project="2">
-                        <img src="img/projects/portfolio.jpg" alt="Portfolio" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">Portfolio Website</div>
+                        <img src="./img/projects/portfolio.jpg" onerror="this.src='https://via.placeholder.com/250'"
+                            alt="Portfolio" class="project-img img-fluid" loading="lazy">
+                        <div class="project-overlay">
+                            <h4>Portfolio Website</h4>
+                            <p>Tags: HTML, CSS, JS</p>
+                        </div>
                     </div>
                     <div class="project-card" data-project="3">
-                        <img src="img/projects/data.jpg" alt="Data Visualizer" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">Data Visualizer</div>
+                        <img src="./img/projects/data.jpg" onerror="this.src='https://via.placeholder.com/250'"
+                            alt="Data Visualizer" class="project-img img-fluid" loading="lazy">
+                        <div class="project-overlay">
+                            <h4>Data Visualizer</h4>
+                            <p>Tags: Python, Matplotlib</p>
+                        </div>
                     </div>
                     <div class="project-card" data-project="4">
-                        <img src="img/projects/algo.jpg" alt="Algorithm Library" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">Algorithm Library</div>
+                        <img src="./img/projects/algo.jpg" onerror="this.src='https://via.placeholder.com/250'"
+                            alt="Algorithm Library" class="project-img img-fluid" loading="lazy">
+                        <div class="project-overlay">
+                            <h4>Algorithm Library</h4>
+                            <p>Tags: C++, Competitive</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-project="5">
+                        <img src="./img/projects/ecommerce.jpg" onerror="this.src='https://via.placeholder.com/250'"
+                            alt="E-commerce Platform" class="project-img img-fluid" loading="lazy">
+                        <div class="project-overlay">
+                            <h4>E-commerce Platform</h4>
+                            <p>Tags: Full-Stack, Payment</p>
+                        </div>
                     </div>
                 </div>
-                <button class="carousel-btn prev btn btn-outline-primary"><span class="material-symbols-outlined">chevron_left</span></button>
-                <button class="carousel-btn next btn btn-outline-primary"><span class="material-symbols-outlined">chevron_right</span></button>
+                <button class="carousel-btn prev btn" aria-label="Previous Project"><span
+                        class="material-symbols-outlined">chevron_left</span></button>
+                <button class="carousel-btn next btn" aria-label="Next Project"><span
+                        class="material-symbols-outlined">chevron_right</span></button>
+            </div>
+        </div>
+    </section>
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">verified</span>
+                Certifications</h2>
+            <div class="certifications-grid d-flex flex-wrap justify-content-center gap-4">
+                <div class="certification-card">
+                    <span class="material-symbols-outlined">verified</span>
+                    <h4>AWS Certified Solutions Architect</h4>
+                    <p>Issued by Amazon Web Services, 2025</p>
+                </div>
+                <div class="certification-card">
+                    <span class="material-symbols-outlined">verified</span>
+                    <h4>HackerRank Python Certification</h4>
+                    <p>Issued by HackerRank, 2024</p>
+                </div>
+                <div class="certification-card">
+                    <span class="material-symbols-outlined">verified</span>
+                    <h4>Google Data Analytics Certificate</h4>
+                    <p>Issued by Google, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">article</span>
+                Blog Highlights</h2>
+            <div class="blog-grid d-flex flex-wrap justify-content-center gap-4">
+                <div class="blog-card">
+                    <h4>Mastering Data Structures in C++</h4>
+                    <p>A deep dive into optimizing data structures for competitive programming.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                <div class="blog-card">
+                    <h4>Automating Tasks with Python</h4>
+                    <p>How to streamline your workflow using Python scripts.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                <div class="blog-card">
+                    <h4>Building Responsive Websites</h4>
+                    <p>Tips and tricks for creating websites that look great on any device.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="stats" class="stats-section section">
+        <div class="container">
+            <h2 class="section-header d-flex align-items-center"><span
+                    class="material-symbols-outlined">bar_chart</span> My Stats</h2>
+            <div class="stats-grid d-flex flex-wrap justify-content-center gap-4">
+                <div class="stats-card">
+                    <span class="material-symbols-outlined">code</span>
+                    <div class="counter" data-target="100">0</div>
+                    <p>LeetCode Problems Solved</p>
+                </div>
+                <div class="stats-card">
+                    <span class="material-symbols-outlined">work</span>
+                    <div class="counter" data-target="5">0</div>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stats-card">
+                    <span class="material-symbols-outlined">verified</span>
+                    <div class="counter" data-target="3">0</div>
+                    <p>Certifications Earned</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="faq-section section">
+        <div class="container">
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">help</span>
+                Frequently Asked Questions</h2>
+            <details class="faq-item">
+                <summary>What technologies do you specialize in?</summary>
+                <p>I specialize in C/C++, Python, Java, JavaScript, HTML, CSS, and SQL, with a strong focus on Data
+                    Structures and Algorithms.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Are you available for freelance projects?</summary>
+                <p>Yes, I'm open to freelance opportunities. Feel free to reach out via the contact section!</p>
+            </details>
+            <details class="faq-item">
+                <summary>How can I collaborate with you?</summary>
+                <p>You can collaborate with me on innovative tech projects by contacting me through email or LinkedIn.
+                </p>
+            </details>
+        </div>
+    </section>
+    <section id="newsletter" class="newsletter-section section">
+        <div class="container">
+            <h2 class="section-header d-flex align-items-center"><span
+                    class="material-symbols-outlined">newsletter</span> Stay Updated</h2>
+            <div class="newsletter-form">
+                <h3>Subscribe to My Newsletter</h3>
+                <input type="email" placeholder="Enter your email" aria-label="Email for Newsletter" required>
+                <button type="submit" class="btn">Subscribe</button>
             </div>
         </div>
     </section>
     <section id="contact" class="section">
         <div class="container">
-            <h2><span class="material-symbols-outlined">mail</span> Contact Me</h2>
-            <form id="contact-form" class="mx-auto">
+            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">mail</span>
+                Contact Me</h2>
+            <div class="mx-auto d-flex flex-column gap-3">
                 <div class="mb-3">
-                    <input type="text" name="name" placeholder="Your Name" required class="form-control form-input" aria-label="Name">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required
+                        class="form-control form-input" aria-label="Your Name">
                 </div>
                 <div class="mb-3">
-                    <input type="email" name="email" placeholder="Your Email" required class="form-control form-input" aria-label="Email">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required
+                        class="form-control form-input" aria-label="Your Email">
                 </div>
                 <div class="mb-3">
-                    <textarea name="message" placeholder="Your Message" required class="form-control form-input" rows="4" aria-label="Message"></textarea>
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required
+                        class="form-control form-input" rows="4" aria-label="Your Message"></textarea>
                 </div>
-                <button type="submit" class="contact-btn btn btn-primary"><span class="material-symbols-outlined">send</span> Send Message</button>
-            </form>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon"><span class="material-symbols-outlined">link</span></a>
-                <a href="mailto:sanskratishukla8@gmail.com" class="social-icon"><span class="material-symbols-outlined">email</span></a>
-                <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon"><span class="material-symbols-outlined">code</span></a>
-                <a href="https://leetcode.com/u/sanskratishuklaa" target="_blank" class="social-icon"><span class="material-symbols-outlined">verified</span></a>
+                <button type="submit" class="contact-btn btn align-self-start" aria-label="Send Message"><span
+                        class="material-symbols-outlined">send</span> Send Message</button>
+            </div>
+            <div class="social-links d-flex justify-content-center gap-3">
+                <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon"
+                    aria-label="LinkedIn"><span class="material-symbols-outlined">link</span></a>
+                <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"><span
+                        class="material-symbols-outlined">email</span></a>
+                <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon"
+                    aria-label="GitHub"><span class="material-symbols-outlined">code</span></a>
+                <a href="https://leetcode.com/u/sanskratishuklaa" target="_blank" class="social-icon"
+                    aria-label="LeetCode"><span class="material-symbols-outlined">verified</span></a>
+                <a href="https://twitter.com/sanskratishukla" target="_blank" class="social-icon"
+                    aria-label="Twitter"><span class="material-symbols-outlined">share</span></a>
             </div>
             <div class="quote-container">
                 <p id="random-quote" class="quote-text"></p>
@@ -233,7 +690,7 @@
     </section>
     <div id="project-modal" class="modal">
         <div class="modal-content">
-            <span class="modal-close">&times;</span>
+            <span class="modal-close" aria-label="Close Modal">×</span>
             <h3 id="modal-title"></h3>
             <p id="modal-description"></p>
         </div>
@@ -241,10 +698,25 @@
     <footer class="footer">
         <div class="container">
             <p class="footer-text">© 2025 Sanskrati Shukla. All rights reserved.</p>
-            <p class="footer-text">Designed with <span class="heart">💜</span> by Sanskrati</p>
+            <p class="footer-text">Crafted with <span class="heart">💡</span> by Sanskrati</p>
+            <div class="footer-date-time"></div>
+            <div class="footer-social-links d-flex justify-content-center gap-3">
+                <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon"
+                    aria-label="LinkedIn"><span class="material-symbols-outlined">link</span></a>
+                <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"><span
+                        class="material-symbols-outlined">email</span></a>
+                <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon"
+                    aria-label="GitHub"><span class="material-symbols-outlined">code</span></a>
+            </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
