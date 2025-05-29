@@ -5,709 +5,1035 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio of Sanskrati Shukla, B.Tech CS student specializing in software development and innovation.">
+        content="Portfolio of Sanskrati Shukla, a B.Tech CS student specializing in innovative software solutions, 3D visualizations, and AI-driven applications.">
     <meta name="author" content="Sanskrati Shukla">
     <meta name="keywords"
-        content="portfolio, Sanskrati Shukla, B.Tech, software engineer, AURXON, SVVV, developer, coder">
+        content="portfolio, Sanskrati Shukla, B.Tech, software engineer, AURXON, MIT Manipal, developer, 3D animation, AI, competitive programming">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Sanskrati Shukla - Portfolio">
+    <meta property="og:title" content="Sanskrati Shukla - Visionary Developer Portfolio">
     <meta property="og:description"
-        content="Portfolio of Sanskrati Shukla, B.Tech CS student specializing in software development and innovation.">
+        content="Discover the portfolio of Sanskrati Shukla, a B.Tech CS student excelling in software development, 3D animations, and AI-driven solutions.">
     <meta property="og:image" content="./img/profile_sasi.png">
     <meta property="og:url" content="https://sanskratishukla.com">
     <meta property="og:type" content="website">
-    <title>Sanskrati Shukla - Portfolio</title>
+    <title>Sanskrati Shukla - Visionary Developer Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&family=Montserrat:wght@500&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="https://fonts.gstatic.com/s/i/materialiconsoutlined/favicon/v13/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 </head>
 
 <body>
-    <div id="loading-spinner" class="loading-spinner">
-        <div class="spinner"></div>
-    </div>
+
+
+    <!-- <div id="loading-spinner" class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div> -->
     <div class="custom-cursor"></div>
     <div class="cursor-orb"></div>
-    <div class="scroll-progress"></div>
-    <div class="mode-toggle">
-        <button id="theme-toggle" class="btn" aria-label="Toggle Theme"><span
-                class="material-symbols-outlined">dark_mode</span></button>
+    <div class="scroll-progress bg-primary"></div>
+    <div class="mode-toggle position-fixed top-0 end-0 m-3">
+        <button id="theme-toggle" class="btn btn-outline-primary" aria-label="Toggle Theme"><i
+                class="bi bi-moon-stars-fill fs-5"></i></button>
     </div>
-    <div class="social-sidebar">
-        <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon" aria-label="LinkedIn"><span
-                class="material-symbols-outlined">link</span></a>
-        <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"><span
-                class="material-symbols-outlined">email</span></a>
-        <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon" aria-label="GitHub"><span
-                class="material-symbols-outlined">code</span></a>
-        <a href="https://leetcode.com/u/sanskratishuklaa" target="_blank" class="social-icon"
-            aria-label="LeetCode"><span class="material-symbols-outlined">verified</span></a>
-        <a href="https://twitter.com/sanskratishukla" target="_blank" class="social-icon" aria-label="Twitter"><span
-                class="material-symbols-outlined">share</span></a>
-    </div>
-    <button id="back-to-top" class="back-to-top btn" aria-label="Back to Top"><span
-            class="material-symbols-outlined">arrow_upward</span></button>
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <aside class="social-sidebar position-fixed start-0 d-flex flex-column gap-3 m-3">
+        <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon text-primary"
+            data-bs-toggle="popover" data-bs-content="Connect on LinkedIn" aria-label="LinkedIn"><i
+                class="bi bi-linkedin fs-4"></i></a>
+        <a href="mailto:sanskratishukla8@gmail.com" class="social-icon text-primary" data-bs-toggle="popover"
+            data-bs-content="Send an Email" aria-label="Email"><i class="bi bi-envelope-fill fs-4"></i></a>
+        <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon text-primary"
+            data-bs-toggle="popover" data-bs-content="View GitHub Profile" aria-label="GitHub"><i
+                class="bi bi-github fs-4"></i></a>
+        <a href="https://leetcode.com/u/sanskratishuklaa" target="_blank" class="social-icon text-primary"
+            data-bs-toggle="popover" data-bs-content="Check LeetCode Stats" aria-label="LeetCode"><i
+                class="bi bi-code-slash fs-4"></i></a>
+        <a href="https://twitter.com/sanskratishukla" target="_blank" class="social-icon text-primary"
+            data-bs-toggle="popover" data-bs-content="Follow on Twitter" aria-label="Twitter"><i
+                class="bi bi-twitter fs-4"></i></a>
+    </aside>
+    <button id="back-to-top" class="btn btn-primary position-fixed bottom-0 end-0 m-3 d-none"
+        aria-label="Back to Top"><i class="bi bi-arrow-up-circle-fill fs-4"></i></button>
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark shadow">
         <div class="container">
-            <a class="navbar-brand nav-logo" href="#">Sanskrati Shukla</a>
-            <button class="navbar-toggler nav-hamburger" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="material-symbols-outlined">menu</span>
+            <a class="navbar-brand nav-logo fw-bold fs-4" href="#">Sanskrati Shukla</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-3"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto nav-links d-flex">
-                    <li class="nav-item"><a class="nav-link" href="#home" aria-label="Home"><span
-                                class="material-symbols-outlined">home</span> Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about" aria-label="About"><span
-                                class="material-symbols-outlined">person</span> About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education" aria-label="Education"><span
-                                class="material-symbols-outlined">school</span> Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services" aria-label="Services"><span
-                                class="material-symbols-outlined">build</span> Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills" aria-label="Skills"><span
-                                class="material-symbols-outlined">code</span> Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects" aria-label="Projects"><span
-                                class="material-symbols-outlined">work</span> Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications" aria-label="Certifications"><span
-                                class="material-symbols-outlined">verified</span> Certifications</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog" aria-label="Blog"><span
-                                class="material-symbols-outlined">article</span> Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Contact"><span
-                                class="material-symbols-outlined">mail</span> Contact</a></li>
-                </ul>
+            <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#home" aria-label="Home"><i
+                                    class="bi bi-house-fill fs-5 me-2"></i>Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about" aria-label="About"><i
+                                    class="bi bi-person-fill fs-5 me-2"></i>About</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#education" aria-label="Education"><i class="bi bi-mortarboard-fill fs-5 me-2"></i>Education</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#experience" aria-label="Experience"><i class="bi bi-briefcase-fill fs-5 me-2"></i>Experience</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="#services" aria-label="Services"><i
+                                    class="bi bi-tools fs-5 me-2"></i>Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills" aria-label="Skills"><i
+                                    class="bi bi-code-slash fs-5 me-2"></i>Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects" aria-label="Projects"><i
+                                    class="bi bi-folder-fill fs-5 me-2"></i>Projects</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#certifications" aria-label="Certifications"><i class="bi bi-award-fill fs-5 me-2"></i>Certifications</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#blog" aria-label="Blog"><i class="bi bi-journal-text fs-5 me-2"></i>Blog</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Contact"><i
+                                    class="bi bi-envelope-fill fs-5 me-2"></i>Contact</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false"><i class="bi bi-gear-fill fs-5 me-2"></i>Resources</a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li><a class="dropdown-item text-white" href="#tutorials">Tutorials</a></li>
+                                <li><a class="dropdown-item text-white" href="#tools">Tools</a></li>
+                                <li><a class="dropdown-item text-white" href="#community">Community</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
-    <section id="home" class="hero"
-        style="position: relative; min-height: calc(100vh - 80px); background: linear-gradient(135deg, #87ceeb, #007bff); padding-top: 80px; display: flex; align-items: center; justify-content: center; z-index: 0; animation: bgGradient 15s ease infinite;">
-        <canvas id="particle-canvas"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
-        <div class="container hero-content d-flex flex-column align-items-center">
-            <div class="hero-spacer" style="height: 80px;"></div>
-            <div class="row align-items-center w-100">
-                <div class="col-12 col-md-6 text-center">
-                    <div class="profile-container" style="perspective: 1000px; margin-top: 20px;">
-                        <img src="./img/profile_sasi.jpg" onerror="this.src='https://via.placeholder.com/200'"
-                            alt="Sanskrati Shukla" class="profile-img img-fluid" loading="lazy"
-                            style="max-width: 250px; width: 100%; border-radius: 50%; border: 6px solid #ffffff; object-fit: cover; transition: transform 0.8s ease;">
-                    </div>
-                    <div id="three-cubes" class="three-cubes"
-                        style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; z-index: -1;">
-                    </div>
+
+    <section id="home" class="hero min-vh-100 d-flex align-items-center position-relative">
+        <canvas id="particle-canvas" class="position-absolute top-0 start-0 w-100 h-100"></canvas>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <img src="./img/profile_sasi.jpg" onerror="this.src='https://via.placeholder.com/200'"
+                        alt="Sanskrati Shukla" class="profile-img img-fluid rounded-circle shadow-lg mb-4"
+                        loading="lazy">
+                    <div id="three-cubes" class="three-cubes"></div>
                 </div>
-                <div class="col-12 col-md-6 text-center"
-                    style="padding: 40px 20px; font-family: 'Segoe UI', sans-serif;">
-                    <h1 class="text-slider"
-                        style="font-size: 2.5rem; font-weight: bold; color: #1b263b; margin: 2rem 0; animation: textFade 1s ease;">
-                        Hi, I'm
-                        <span class="typing-name"
-                            style="display: inline-block; border-right: 2px solid #007bff; white-space: nowrap; overflow: hidden; animation: typing 3s steps(30, end), blink 0.75s step-end infinite; color: #007bff; max-width: 0;">
-                            Sanskrati Shukla
-                        </span>
-                    </h1>
-                    <p class="tagline"
-                        style="font-size: 1.2rem; margin-top: 10px; color: #6c757d; animation: subtitleFade 1s ease 1s forwards;">
-                        B.Tech CS '28 | Developer | Innovator | Problem Solver
-                    </p>
-                    <div class="slider-content d-flex flex-column align-items-center" style="margin-top: 20px;">
-                        <div class="slider-item active d-flex align-items-center"
-                            style="gap: 10px; font-size: 1rem; color: #555;">
-                            <span class="material-symbols-outlined"
-                                style="color: #007bff; font-size: 2rem;">business_center</span>
-                            <p style="margin: 0; color: #1b263b;">Software Intern at AURXON, 2025</p>
-                        </div>
-                        <div class="slider-item d-flex align-items-center"
-                            style="gap: 10px; font-size: 1rem; color: #555; display: none; opacity: 0; animation: itemFade 1s forwards;">
-                            <span class="material-symbols-outlined"
-                                style="color: #007bff; font-size: 2rem;">school</span>
-                            <p style="margin: 0; color: #1b263b;">B.Tech CS at SVVV, Indore</p>
-                        </div>
-                        <div class="slider-item d-flex align-items-center"
-                            style="gap: 10px; font-size: 1rem; color: #555; display: none; opacity: 0; animation: itemFade 1s forwards;">
-                            <span class="material-symbols-outlined" style="color: #007bff; font-size: 2rem;">code</span>
-                            <p style="margin: 0; color: #1b263b;">Competitive Programmer at LeetCode</p>
+                <div class="col-md-6 text-center">
+                    <h1 class="display-4 text-slider fw-bold mb-3">Welcome to My Universe, I'm <span
+                            class="typing-name">Sanskrati Shukla</span></h1>
+                    <p class="lead tagline">B.Tech CS '28 | Full-Stack Developer | 3D Innovator | AI Visionary</p>
+                    <div id="slider-content" class="carousel slide mb-4" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active d-flex align-items-center justify-content-center">
+                                <i class="bi bi-briefcase-fill fs-3 me-2"></i>
+                                <p class="mb-0">Software Intern at AURXON, Innovating Since 2025</p>
+                            </div>
+                            <div class="carousel-item d-flex align-items-center justify-content-center">
+                                <i class="bi bi-mortarboard-fill fs-3 me-2"></i>
+                                <p class="mb-0">B.Tech in Computer Science at MIT, Manipal</p>
+                            </div>
+                            <div class="carousel-item d-flex align-items-center justify-content-center">
+                                <i class="bi bi-code-slash fs-3 me-2"></i>
+                                <p class="mb-0">Top-Ranked Competitive Programmer on LeetCode</p>
+                            </div>
+                            <div class="carousel-item d-flex align-items-center justify-content-center">
+                                <i class="bi bi-lightbulb-fill fs-3 me-2"></i>
+                                <p class="mb-0">Pioneering AI-Driven Solutions for Global Impact</p>
+                            </div>
                         </div>
                     </div>
-                    <a href="resume.pdf" class="resume-btn btn" download aria-label="Download Resume"
-                        style="padding: 0.8rem 2rem; border-radius: 30px; background: #007bff; border: none; color: #ffffff; transition: all 0.3s ease; margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); position: relative; overflow: hidden;">
-                        <span class="material-symbols-outlined" style="font-size: 1.5rem;">download</span>
-                        Download Resume
-                        <span class="btn-overlay"
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.2); transform: translateX(-100%); transition: transform 0.5s ease;"></span>
-                    </a>
+                    <a href="resume.pdf" class="resume-btn btn btn-primary btn-lg" download
+                        aria-label="Download Resume"><i class="bi bi-download fs-5 me-2"></i>Download My Resume</a>
                 </div>
             </div>
         </div>
-        <style>
-            @keyframes typing {
-                from {
-                    max-width: 0;
-                }
-
-                to {
-                    max-width: 300px;
-                }
-            }
-
-            @keyframes blink {
-                50% {
-                    border-color: transparent;
-                }
-            }
-
-            @keyframes textFade {
-                0% {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes subtitleFade {
-                0% {
-                    opacity: 0;
-                }
-
-                100% {
-                    opacity: 1;
-                }
-            }
-
-            @keyframes itemFade {
-                0% {
-                    opacity: 0;
-                    transform: translateY(10px);
-                }
-
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes bgGradient {
-                0% {
-                    background-position: 0% 50%;
-                }
-
-                50% {
-                    background-position: 100% 50%;
-                }
-
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-
-            @keyframes btnPulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
-                }
-
-                70% {
-                    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
-                }
-
-                100% {
-                    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-                }
-            }
-
-            .resume-btn:hover {
-                transform: scale(1.05);
-                box-shadow: 0 0 15px #a8e6ff;
-                animation: btnPulse 1s infinite;
-            }
-
-            .resume-btn:hover .btn-overlay {
-                transform: translateX(0);
-            }
-
-            .resume-btn:focus {
-                outline: 2px solid #007bff;
-                outline-offset: 2px;
-            }
-
-            .dark-mode .resume-btn {
-                background: linear-gradient(145deg, #00cc00, #b266ff);
-            }
-
-            .dark-mode .resume-btn:hover {
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            }
-
-            .dark-mode .resume-btn:focus {
-                outline-color: #b266ff;
-            }
-        </style>
     </section>
-    <section id="about" class="section">
+    <section id="about" class="section py-5">
         <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">person</span>
-                About Me</h2>
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-person-fill fs-3 me-2"></i>About Me</h2>
             <div class="row">
-                <div class="col-12 col-lg-8 mx-auto about-content">
-                    <p class="about-intro typing-effect">Hey, I'm Sanskrati Shukla, a B.Tech CS student</p>
-                    <p class="about-intro typing-effect">crafting code with a spark of innovation!</p>
-                    <p class="about-text">Currently pursuing my B.Tech in Computer Science at Manipal Institute of
-                        Technology, Manipal, I'm deeply passionate about technology and its potential to solve
-                        real-world problems.</p>
-                    <p class="about-text">My expertise lies in C/C++, Python, and Java, with a strong focus on Data
-                        Structures and Algorithms, which I practice regularly on platforms like LeetCode.</p>
-                    <p class="about-text">As a Software Intern at AURXON since January 2025, I've been working on
-                        automation tools, streamlining workflows, and building solutions that enhance productivity.</p>
-                    <p class="about-text">I thrive on challenges and continuously seek to expand my skill set, whether
-                        it's through competitive programming, web development, or exploring new technologies.</p>
-                    <p class="about-text">My goal is to create impactful technology that pushes boundaries and sparks
-                        change. I'm always eager to collaborate on innovative projects—let's build something amazing
-                        together!</p>
-                    <div class="timeline">
-                        <div class="timeline-item" data-year="2024 - Present">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>2024 - Present</h3>
-                                <p>B.Tech in Computer Science, Manipal Institute of Technology, Manipal</p>
-                                <p>Building a strong foundation in computer science with a focus on coding and
-                                    problem-solving.</p>
+                <div class="col-lg-8 mx-auto">
+                    <p class="about-intro lead typing-effect mb-4">Greetings! I'm Sanskrati Shukla, a passionate B.Tech
+                        CS student dedicated to crafting transformative software solutions.</p>
+                    <div class="collapse" id="aboutCollapse">
+                        <p class="about-text">Currently pursuing my Bachelor of Technology in Computer Science at
+                            Manipal Institute of Technology, Manipal (2024-2028), I am driven by a mission to harness
+                            technology for solving complex global challenges.</p>
+                        <p class="about-text">My expertise spans C/C++, Python, Java, JavaScript, and advanced
+                            frameworks, with a strong emphasis on Data Structures, Algorithms, and 3D visualization
+                            using Three.js. I consistently rank among top performers on competitive programming
+                            platforms like LeetCode and CodeChef.</p>
+                        <p class="about-text">As a Software Intern at AURXON since January 2025, I spearhead the
+                            development of automation tools, full-stack applications, and AI-integrated solutions,
+                            delivering seamless and scalable systems that enhance productivity and user experience.</p>
+                        <p class="about-text">My passion for innovation fuels my exploration of cutting-edge
+                            technologies, including AI, machine learning, and immersive 3D experiences. I thrive on
+                            transforming ideas into reality through elegant code and creative problem-solving.</p>
+                        <p class="about-text">I’m eager to collaborate on groundbreaking projects that push
+                            technological boundaries. Let’s connect to build something extraordinary that redefines
+                            possibilities!</p>
+                    </div>
+                    <button class="btn btn-outline-primary mb-4" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#aboutCollapse" aria-expanded="false" aria-controls="aboutCollapse"><i
+                            class="bi bi-chevron-down fs-5 me-2"></i>Read More</button>
+                    <ul class="list-group">
+                        <li class="list-group-item"><i class="bi bi-calendar-fill fs-5 me-2"></i>2024 - Present: B.Tech
+                            in Computer Science, Manipal Institute of Technology, Manipal (CGPA: 8.7)</li>
+                        <li class="list-group-item"><i class="bi bi-briefcase-fill fs-5 me-2"></i>Jan 2025 - Present:
+                            Software Intern at AURXON</li>
+                        <li class="list-group-item"><i class="bi bi-code-slash fs-5 me-2"></i>2024 - Present:
+                            Competitive Programmer & Open-Source Contributor</li>
+                    </ul>
+                    <div class="d-flex gap-3 justify-content-center mt-4">
+                        <a href="resume.pdf" class="resume-btn btn btn-primary" download
+                            aria-label="Download PDF Resume"><i class="bi bi-file-earmark-pdf-fill fs-5 me-2"></i>PDF
+                            Resume</a>
+                        <a href="resume.docx" class="resume-btn btn btn-primary" download
+                            aria-label="Download DOCX Resume"><i class="bi bi-file-earmark-word-fill fs-5 me-2"></i>DOCX
+                            Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-mortarboard-fill fs-3 me-2"></i>Education
+            </h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h4>2024 - 2028 (Expected)</h4>
+                            <p>Bachelor of Technology in Computer Science</p>
+                            <p>Manipal Institute of Technology, Manipal</p>
+                            <p>CGPA: 8.7 (as of 2025), with coursework in AI, Data Structures, and 3D Graphics.</p>
+                        </li>
+                        <li class="list-group-item">
+                            <h4>2022 - 2024</h4>
+                            <p>Higher Secondary Education (CBSE)</p>
+                            <p>Delhi Public School, Delhi</p>
+                            <p>Percentage: 94%, with a focus on Physics, Mathematics, and Computer Science.</p>
+                        </li>
+                        <li class="list-group-item">
+                            <h4>2020 - 2022</h4>
+                            <p>Secondary Education (CBSE)</p>
+                            <p>St. Mary's School, Mumbai</p>
+                            <p>Percentage: 96%, excelling in Mathematics and Science.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-briefcase-fill fs-3 me-2"></i>Experience
+            </h2>
+            <ul class="nav nav-tabs" id="experienceTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="aurxon-tab" data-bs-toggle="tab" data-bs-target="#aurxon"
+                        type="button" role="tab" aria-controls="aurxon" aria-selected="true">AURXON</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="freelance-tab" data-bs-toggle="tab" data-bs-target="#freelance"
+                        type="button" role="tab" aria-controls="freelance" aria-selected="false">Freelance</button>
+                </li>
+            </ul>
+            <div class="tab-content mt-4" id="experienceTabContent">
+                <div class="tab-pane fade show active" id="aurxon" role="tabpanel" aria-labelledby="aurxon-tab">
+                    <p><strong>Software Intern (Jan 2025 - Present)</strong></p>
+                    <p>Developed automation tools and full-stack applications with AI integrations, improving system
+                        efficiency by 30%.</p>
+                </div>
+                <div class="tab-pane fade" id="freelance" role="tabpanel" aria-labelledby="freelance-tab">
+                    <p><strong>Freelance Developer (2024 - Present)</strong></p>
+                    <p>Delivered 5+ web applications for clients, focusing on responsive design and user experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-tools fs-3 me-2"></i>Services</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card service-card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="bi bi-code-slash fs-2 mb-3"></i>
+                            <h3 class="card-title">Software Development</h3>
+                            <p class="card-text">Building robust, scalable software solutions tailored to business
+                                needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card service-card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="bi bi-globe fs-2 mb-3"></i>
+                            <h3 class="card-title">Web Development</h3>
+                            <p class="card-text">Creating responsive, interactive, and visually stunning websites.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card service-card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="bi bi-boxes fs-2 mb-3"></i>
+                            <h3 class="card-title">3D Visualization</h3>
+                            <p class="card-text">Designing immersive 3D animations for enhanced user engagement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card service-card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="bi bi-robot fs-2 mb-3"></i>
+                            <h3 class="card-title">AI Integration</h3>
+                            <p class="card-text">Developing AI-driven applications for automation and analytics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-code-slash fs-3 me-2"></i>Technical
+                Expertise</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Python: Automation, AI, and Scripting">
+                        <img src="./img/skills/python-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                            alt="Python" class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i class="bi bi-code fs-5 me-2"></i>Python
+                            </h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 92%"
+                                    aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">92%</div>
                             </div>
                         </div>
-                        <div class="timeline-item" data-year="Jan 2025 - Present">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>Jan 2025 - Present</h3>
-                                <p>Software Intern at AURXON</p>
-                                <p>Developing automation tools and real-world software solutions to improve efficiency.
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Java: Enterprise Applications">
+                        <img src="./img/skills/java-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                            alt="Java" class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i class="bi bi-code fs-5 me-2"></i>Java
+                            </h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 88%"
+                                    aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">88%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="C: System-Level Programming">
+                        <img src="./img/skills/c-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="C"
+                            class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i class="bi bi-code fs-5 me-2"></i>C</h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"
+                                    aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="C++: Competitive Programming & Optimization">
+                        <img src="./img/skills/cpp-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                            alt="C++" class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i class="bi bi-code fs-5 me-2"></i>C++
+                            </h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 90%"
+                                    aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="JavaScript: Dynamic Web Applications">
+                        <img src="./img/skills/js-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                            alt="JavaScript" class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i
+                                    class="bi bi-code fs-5 me-2"></i>JavaScript</h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
+                                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="HTML: Semantic Web Structure">
+                        <img src="./img/skills/html-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                            alt="HTML" class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i class="bi bi-code fs-5 me-2"></i>HTML
+                            </h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 95%"
+                                    aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="CSS: Advanced Styling & Animations">
+                        <img src="./img/skills/css-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                            alt="CSS" class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i class="bi bi-code fs-5 me-2"></i>CSS
+                            </h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 90%"
+                                    aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card skill-card h-100 shadow" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="SQL: Database Management">
+                        <img src="./img/skills/sql-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
+                            alt="SQL" class="card-img-top skill-img" loading="lazy">
+                        <div class="card-body text-center">
+                            <h4 class="card-title d-flex align-items-center"><i class="bi bi-code fs-5 me-2"></i>SQL
+                            </h4>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"
+                                    aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3>Additional Skills</h3>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-primary"><i class="bi bi-code fs-5 me-2"></i>Three.js</span>
+                    <span class="badge bg-primary"><i class="bi bi-code fs-5 me-2"></i>React.js</span>
+                    <span class="badge bg-primary"><i class="bi bi-code fs-5 me-2"></i>Node.js</span>
+                    <span class="badge bg-primary"><i class="bi bi-code fs-5 me-2"></i>MongoDB</span>
+                    <span class="badge bg-primary"><i class="bi bi-code fs-5 me-2"></i>Git</span>
+                    <span class="badge bg-primary"><i class="bi bi-code fs-5 me-2"></i>AWS</span>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3>Expertise Areas</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="progress-circle">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="circle-fg" cx="50" cy="50" r="45" data-progress="90"></circle>
+                            </svg>
+                            <span>Data Structures</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="progress-circle">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="circle-fg" cx="50" cy="50" r="45" data-progress="85"></circle>
+                            </svg>
+                            <span>Algorithms</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="progress-circle">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="circle-fg" cx="50" cy="50" r="45" data-progress="80"></circle>
+                            </svg>
+                            <span>Web Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3>Achievement Badges</h3>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-success" data-confetti-confetti data-bs-toggle="tooltip"
+                        title="AWS Certified"><i class="bi bi-award fs-3"></i>AWS Certified Solutions Architect</span>
+                    <span class="badge bg-success" data-confetti-confetti data-bs-toggle="tooltip"
+                        title="LeetCode Top 5%"><i class="leetcode-icon fs-3"></i>LeetCode Top 5% Rank</span>
+                    <span class="badge bg-success" data-confetti-confetti data-bs-toggle="tooltip"
+                        title="CodeChef 3-Star"><i class="bi bi-star-fill fs-3"></i>CodeChef 3-Star</span>
+                    <span class="badge bg-success" data-confetti-confetti data-bs-toggle="tooltip"
+                        title="Google Data Analytics"><i class="bi bi-google fs-3"></i>Google Data Analytics</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-folder fs-2 me-3"></i>Projects</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                </ol>
+            </nav>
+            <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card project-card shadow-lg" data-project="1">
+                            <img src="./img/projects/task.jpg" onerror="this.src='https://via.placeholder.com/250'"
+                                alt="Task Manager" class="card-img-top img-thumbnail" loading="lazy">
+                            <div class="card-body">
+                                <h4 class="card-title">Task Manager CLI</h4>
+                                <p class="card-text">Tags: Python, CLI, Automation</p>
+                                <p class="card-text">A command-line tool for efficient task management with priority
+                                    sorting and reminders.</p>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-project="1">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card project-card shadow-lg" data-project="2">
+                            <img src="./img/projects/portfolio.jpg" alt="Project" class="card-img-top img-thumbnail"
+                                loading="lazy" onerror="this.src='https://via.placeholder.com/250'">
+                            <div class="card-body">
+                                <h4 class="card-title">Portfolio</h4>
+                                <p class="card-text">Tags: HTML, CSS, JavaScript, Three.js</p>
+                                <p class="card-text">Dynamic portfolio website with 3D animations and responsive design.
                                 </p>
-                            </div>
-                        </div>
-                        <div class="timeline-item" data-year="2024 - Present">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>2024 - Present</h3>
-                                <p>Competitive Programmer</p>
-                                <p>Solving 100+ problems on LeetCode and participating in coding contests to sharpen my
-                                    skills.</p>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-project="2">View Details</button>
                             </div>
                         </div>
                     </div>
-                    <div class="resume-buttons d-flex gap-3 justify-content-center mt-4">
-                        <a href="resume.pdf" class="resume-btn btn" download aria-label="Download PDF Resume"><span
-                                class="material-symbols-outlined">download</span> Download PDF Resume</a>
-                        <a href="resume.docx" class="resume-btn btn" download aria-label="Download DOCX Resume"><span
-                                class="material-symbols-outlined">download</span> Download DOCX Resume</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">school</span>
-                Education</h2>
-            <div class="row">
-                <div class="col-12 col-lg-8 mx-auto">
-                    <div class="timeline">
-                        <div class="timeline-item" data-year="2024 - 2028">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>2024 - 2028 (Expected)</h3>
-                                <p>B.Tech in Computer Science</p>
-                                <p>Manipal Institute of Technology, Manipal</p>
-                                <p>CGPA: 8.5 (as of 2025)</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item" data-year="2022 - 2024">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>2022 - 2024</h3>
-                                <p>Higher Secondary Education</p>
-                                <p>Delhi Public School, Delhi</p>
-                                <p>Percentage: 92%</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item" data-year="2020 - 2022">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>2020 - 2022</h3>
-                                <p>Secondary Education</p>
-                                <p>St. Mary's School, Mumbai</p>
-                                <p>Percentage: 95%</p>
+                    <div class="carousel-item">
+                        <div class="card project-card shadow-lg" data-project="3">
+                            <img src="./img/projects/data.jpg" alt="Data Visualizer" class="card-img-top img-thumbnail"
+                                loading="lazy" onerror="this.src='https://via.placeholder.com/250'">
+                            <div class="card-body">
+                                <h4 class="card-title">Data Visualization Dashboard</h4>
+                                <p class="card-text">Tags: Python, Matplotlib, Flask</p>
+                                <p class="card-text">An interactive dashboard for real-time data analysis and
+                                    visualization.</p>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-project="3">View Details</button>
                             </div>
                         </div>
                     </div>
+                    <div class="carousel-item">
+                        <div class="card project-card shadow-lg" data-project="4">
+                            <img src="./img/projects/algo.jpg" alt="Algorithm Library"
+                                class="card-img-top img-thumbnail" loading="lazy"
+                                onerror="this.src='https://via.placeholder.com/250'">
+                            <div class="card-body">
+                                <h4 class="card-title">Algorithm Library</h4>
+                                <p class="card-text">Tags: C++, Competitive Programming</p>
+                                <p class="card-text">A comprehensive library of optimized algorithms for competitive
+                                    coding.</p>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-project="4">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card project-card shadow-lg" data-project="5">
+                            <img src="./img/projects/ecommerce.jpg" alt="E-commerce Platform"
+                                class="card-img-top img-thumbnail" loading="lazy"
+                                onerror="this.src='https://via.placeholder.com/250'">
+                            <div class="card-body">
+                                <h4 class="card-title">E-commerce Platform</h4>
+                                <p class="card-text">Tags: Full-Stack, React, Node.js</p>
+                                <p class="card-text">A fully functional e-commerce platform with payment integration.
+                                </p>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-project="5">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card project-card shadow-lg" data-project="6">
+                            <img src="./img/projects/chatbot.jpg" alt="AI Chatbot" class="card-img-top img-thumbnail"
+                                loading="lazy" onerror="this.src='https://via.placeholder.com/250'">
+                            <div class="card-body">
+                                <h4 class="card-title">AI-Powered Chatbot</h4>
+                                <p class="card-text">Tags: Python, NLP, TensorFlow</p>
+                                <p class="card-text">An intelligent chatbot for customer support automation.</p>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-project="6">View Details</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
-    <section id="services" class="section">
+    <section id="certifications" class="section py-5">
         <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">build</span>
-                Services</h2>
-            <div class="services-grid d-flex flex-wrap justify-content-center gap-4">
-                <div class="service-card">
-                    <span class="material-symbols-outlined">code</span>
-                    <h3>Software Development</h3>
-                    <p>Building efficient and scalable software solutions.</p>
-                </div>
-                <div class="service-card">
-                    <span class="material-symbols-outlined">web</span>
-                    <h3>Web Development</h3>
-                    <p>Creating responsive and interactive websites.</p>
-                </div>
-                <div class="service-card">
-                    <span class="material-symbols-outlined">analytics</span>
-                    <h3>Data Analysis</h3>
-                    <p>Analyzing data to derive actionable insights.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                Skills</h2>
-            <div class="skills-grid d-flex flex-wrap justify-content-center gap-4">
-                <div class="skill-card" data-tooltip="Python: Automation & Scripting">
-                    <img src="./img/skills/python-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
-                        alt="Python" class="skill-img img-fluid" loading="lazy">
-                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> Python
-                    </h4>
-                    <div class="skill-progress" data-progress="90"></div>
-                </div>
-                <div class="skill-card" data-tooltip="Java: Object-Oriented Programming">
-                    <img src="./img/skills/java-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="Java"
-                        class="skill-img img-fluid" loading="lazy">
-                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> Java</h4>
-                    <div class="skill-progress" data-progress="85"></div>
-                </div>
-                <div class="skill-card" data-tooltip="C: System Programming">
-                    <img src="./img/skills/c-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="C"
-                        class="skill-img img-fluid" loading="lazy">
-                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> C</h4>
-                    <div class="skill-progress" data-progress="80"></div>
-                </div>
-                <div class="skill-card" data-tooltip="C++: Competitive Coding">
-                    <img src="./img/skills/cpp-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="C++"
-                        class="skill-img img-fluid" loading="lazy">
-                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> C++</h4>
-                    <div class="skill-progress" data-progress="85"></div>
-                </div>
-                <div class="skill-card" data-tooltip="JavaScript: Web Development">
-                    <img src="./img/skills/js-img.jpg" onerror="this.src='https://via.placeholder.com/150'"
-                        alt="JavaScript" class="skill-img img-fluid" loading="lazy">
-                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> JavaScript
-                    </h4>
-                    <div class="skill-progress" data-progress="70"></div>
-                </div>
-                <div class="skill-card" data-tooltip="HTML: Web Structure">
-                    <img src="./img/skills/html-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="HTML"
-                        class="skill-img img-fluid" loading="lazy">
-                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> HTML</h4>
-                    <div class="skill-progress" data-progress="90"></div>
-                </div>
-                <div class="skill-card" data-tooltip="CSS: Web Styling">
-                    <img src="./img/skills/css-img.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="CSS"
-                        class="skill-img img-fluid" loading="lazy">
-                    <h4 class="d-flex align-items-center"><span class="material-symbols-outlined">code</span> CSS</h4>
-                    <div class="skill-progress" data-progress="85"></div>
-                </div>
-            </div>
-            <div class="side-skills d-flex flex-column gap-2">
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                    Python</div>
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                    Java</div>
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span> C
-                </div>
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                    C++</div>
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                    JavaScript</div>
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                    HTML</div>
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                    CSS</div>
-                <div class="side-skill d-flex align-items-center"><span class="material-symbols-outlined">code</span>
-                    SQL</div>
-            </div>
-            <div class="progress-circles d-flex flex-wrap justify-content-center gap-4">
-                <div class="progress-circle" data-progress="85">
-                    <svg class="circle-svg" viewBox="0 0 100 100">
-                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
-                    </svg>
-                    <span>Data Structures</span>
-                </div>
-                <div class="progress-circle" data-progress="80">
-                    <svg class="circle-svg" viewBox="0 0 100 100">
-                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
-                    </svg>
-                    <span>Algorithms</span>
-                </div>
-                <div class="progress-circle" data-progress="65">
-                    <svg class="circle-svg" viewBox="0 0 100 100">
-                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
-                    </svg>
-                    <span>Web Development</span>
-                </div>
-                <div class="progress-circle" data-progress="70">
-                    <svg class="circle-svg" viewBox="0 0 100 100">
-                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
-                    </svg>
-                    <span>Python Scripting</span>
-                </div>
-                <div class="progress-circle" data-progress="60">
-                    <svg class="circle-svg" viewBox="0 0 100 100">
-                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
-                        <circle class="circle-fg" cx="50" cy="50" r="45"></circle>
-                    </svg>
-                    <span>Database Management</span>
-                </div>
-            </div>
-            <div class="badges d-flex justify-content-center gap-2">
-                <span class="badge d-flex align-items-center" data-confetti><span
-                        class="material-symbols-outlined">verified</span> HackerRank Certified</span>
-                <span class="badge d-flex align-items-center" data-confetti><span
-                        class="material-symbols-outlined">verified</span> LeetCode 100+ Problems</span>
-                <span class="badge d-flex align-items-center" data-confetti><span
-                        class="material-symbols-outlined">verified</span> CodeChef 3-Star</span>
-                <span class="badge d-flex align-items-center" data-confetti><span
-                        class="material-symbols-outlined">verified</span> AWS Certified</span>
-            </div>
-        </div>
-    </section>
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">work</span>
-                Projects</h2>
-            <div class="project-carousel">
-                <div class="carousel-inner d-flex">
-                    <div class="project-card" data-project="1">
-                        <img src="./img/projects/task.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                            alt="Task Manager" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">
-                            <h4>Task Manager</h4>
-                            <p>Tags: Python, CLI</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="2">
-                        <img src="./img/projects/portfolio.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                            alt="Portfolio" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">
-                            <h4>Portfolio Website</h4>
-                            <p>Tags: HTML, CSS, JS</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="3">
-                        <img src="./img/projects/data.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                            alt="Data Visualizer" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">
-                            <h4>Data Visualizer</h4>
-                            <p>Tags: Python, Matplotlib</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="4">
-                        <img src="./img/projects/algo.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                            alt="Algorithm Library" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">
-                            <h4>Algorithm Library</h4>
-                            <p>Tags: C++, Competitive</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="5">
-                        <img src="./img/projects/ecommerce.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                            alt="E-commerce Platform" class="project-img img-fluid" loading="lazy">
-                        <div class="project-overlay">
-                            <h4>E-commerce Platform</h4>
-                            <p>Tags: Full-Stack, Payment</p>
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-award fs-2 me-3"></i>Certifications</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card certification-card shadow h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="bi bi-award fs-4 me-2"></i>AWS Certified Solutions
+                                Architect</h4>
+                            <p class="card-text">Issued by Amazon Web Services, 2025</p>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-btn prev btn" aria-label="Previous Project"><span
-                        class="material-symbols-outlined">chevron_left</span></button>
-                <button class="carousel-btn next btn" aria-label="Next Project"><span
-                        class="material-symbols-outlined">chevron_right</span></button>
-            </div>
-        </div>
-    </section>
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">verified</span>
-                Certifications</h2>
-            <div class="certifications-grid d-flex flex-wrap justify-content-center gap-4">
-                <div class="certification-card">
-                    <span class="material-symbols-outlined">verified</span>
-                    <h4>AWS Certified Solutions Architect</h4>
-                    <p>Issued by Amazon Web Services, 2025</p>
+                <div class="col-md-6">
+                    <div class="card certification-card shadow h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="bi bi-award fs-4 me-2"></i>HackerRank Python Certification
+                            </h4>
+                            <p class="card-text">Issued by HackerRank, 2024</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="certification-card">
-                    <span class="material-symbols-outlined">verified</span>
-                    <h4>HackerRank Python Certification</h4>
-                    <p>Issued by HackerRank, 2024</p>
+                <div class="col-md-6">
+                    <div class="card certification-card shadow h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="bi bi-award fs-4 me-2"></i>Google Data Analytics
+                                Professional Certificate</h4>
+                            <p class="card-text">Issued by Google, 2024</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="certification-card">
-                    <span class="material-symbols-outlined">verified</span>
-                    <h4>Google Data Analytics Certificate</h4>
-                    <p>Issued by Google, 2024</p>
+                <div class="col-md-6">
+                    <div class="card certification-card shadow h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="bi bi-award fs-4 me-2"></i>Microsoft Azure Fundamentals
+                            </h4>
+                            <p class="card-text">Issued by Microsoft, 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card certification-card shadow h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="bi bi-award fs-4 me-2"></i>Oracle Cloud Infrastructure
+                                Foundations</h4>
+                            <p class="card-text">Issued by Oracle, 2024</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <section id="blog" class="section">
         <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">article</span>
-                Blog Highlights</h2>
-            <div class="blog-grid d-flex flex-wrap justify-content-center gap-4">
-                <div class="blog-card">
-                    <h4>Mastering Data Structures in C++</h4>
-                    <p>A deep dive into optimizing data structures for competitive programming.</p>
-                    <a href="#" class="btn">Read More</a>
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-journal-text fs-4 me-2"></i>Blog
+                Highlights</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                </ol>
+            </nav>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card blog-card shadow h-100">
+                        <img src="./img/blog/data.jpg" alt="Data Structures" class="card-img-top img-thumbnail"
+                            loading="lazy" onerror="this.src='https://via.placeholder.com/300'">
+                        <div class="card-body">
+                            <h4 class="card-title">Mastering Data Structures in C++</h4>
+                            <p class="card-text">Explore advanced techniques for optimizing data structures in
+                                competitive programming.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="blog-card">
-                    <h4>Automating Tasks with Python</h4>
-                    <p>How to streamline your workflow using Python scripts.</p>
-                    <a href="#" class="btn">Read More</a>
+                <div class="col-md-4">
+                    <div class="card blog-card shadow h-100">
+                        <img src="./img/blog/python.jpg" alt="Python Automation" class="card-img-top img-thumbnail"
+                            loading="lazy" onerror="this.src='https://via.placeholder.com/300'">
+                        <div class="card-body">
+                            <h4 class="card-title">Automating Workflows with Python</h4>
+                            <p class="card-text">Learn how to streamline repetitive tasks using Python automation
+                                scripts.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="blog-card">
-                    <h4>Building Responsive Websites</h4>
-                    <p>Tips and tricks for creating websites that look great on any device.</p>
-                    <a href="#" class="btn">Read More</a>
+                <div class="col-md-4">
+                    <div class="card blog-card shadow h-100">
+                        <img src="./img/blog/threejs.jpg" alt="3D Web Experiences" class="card-img-top img-thumbnail"
+                            loading="lazy" onerror="this.src='https://via.placeholder.com/300'">
+                        <div class="card-body">
+                            <h4 class="card-title">Creating Immersive 3D Web Experiences</h4>
+                            <p class="card-text">Discover the power of Three.js for building interactive 3D
+                                visualizations.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card blog-card shadow h-100">
+                        <img src="./img/blog/ai.jpg" alt="AI Trends" class="card-img-top img-thumbnail" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/300'">
+                        <div class="card-body">
+                            <h4 class="card-title">Future of AI in Software Development</h4>
+                            <p class="card-text">Insights into how AI is transforming the software industry.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="Blog pagination">
+                <ul class="pagination justify-content-center mt-4">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section id="stats" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-bar-chart-fill fs-3 me-2"></i>My Stats
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card stats-card shadow text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-code-slash fs-2 mb-3"></i>
+                            <div class="counter display-4" data-target="150">0</div>
+                            <p class="card-text">LeetCode Problems Solved</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card shadow text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-folder-fill fs-2 mb-3"></i>
+                            <div class="counter display-4" data-target="8">0</div>
+                            <p class="card-text">Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card shadow text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-award-fill fs-2 mb-3"></i>
+                            <div class="counter display-4" data-target="4">0</div>
+                            <p class="card-text">Certifications Earned</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card shadow text-center h-100">
+                        <div class="card-body">
+                            <i class="bi bi-people-fill fs-2 mb-3"></i>
+                            <div class="counter display-4" data-target="10">0</div>
+                            <p class="card-text">Open-Source Contributions</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="stats" class="stats-section section">
+    <section id="testimonials" class="section py-5">
         <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span
-                    class="material-symbols-outlined">bar_chart</span> My Stats</h2>
-            <div class="stats-grid d-flex flex-wrap justify-content-center gap-4">
-                <div class="stats-card">
-                    <span class="material-symbols-outlined">code</span>
-                    <div class="counter" data-target="100">0</div>
-                    <p>LeetCode Problems Solved</p>
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-quote fs-3 me-2"></i>Testimonials</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card testimonial-card shadow">
+                            <div class="card-body text-center">
+                                <p class="card-text">"Sanskrati's innovative approach to 3D visualization transformed
+                                    our project!"</p>
+                                <h5 class="card-title">John Doe, CTO at AURXON</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card testimonial-card shadow">
+                            <div class="card-body text-center">
+                                <p class="card-text">"Her coding skills and dedication are unmatched."</p>
+                                <h5 class="card-title">Jane Smith, Project Manager</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stats-card">
-                    <span class="material-symbols-outlined">work</span>
-                    <div class="counter" data-target="5">0</div>
-                    <p>Projects Completed</p>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section id="achievements" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-trophy-fill fs-3 me-2"></i>Achievements
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card achievement-card shadow h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-trophy-fill fs-2 mb-3"></i>
+                            <h4 class="card-title">Hackathon Winner</h4>
+                            <p class="card-text">Won 1st place in MIT Hackathon 2024 for AI-driven solution.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="stats-card">
-                    <span class="material-symbols-outlined">verified</span>
-                    <div class="counter" data-target="3">0</div>
-                    <p>Certifications Earned</p>
+                <div class="col-md-4">
+                    <div class="card achievement-card shadow h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-trophy-fill fs-2 mb-3"></i>
+                            <h4 class="card-title">LeetCode Rank</h4>
+                            <p class="card-text">Top 5% globally in LeetCode contests.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card achievement-card shadow h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-trophy-fill fs-2 mb-3"></i>
+                            <h4 class="card-title">CodeChef Star</h4>
+                            <p class="card-text">Achieved 3-star rating on CodeChef.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="faq" class="faq-section section">
+    <section id="clients" class="section py-5">
         <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">help</span>
-                Frequently Asked Questions</h2>
-            <details class="faq-item">
-                <summary>What technologies do you specialize in?</summary>
-                <p>I specialize in C/C++, Python, Java, JavaScript, HTML, CSS, and SQL, with a strong focus on Data
-                    Structures and Algorithms.</p>
-            </details>
-            <details class="faq-item">
-                <summary>Are you available for freelance projects?</summary>
-                <p>Yes, I'm open to freelance opportunities. Feel free to reach out via the contact section!</p>
-            </details>
-            <details class="faq-item">
-                <summary>How can I collaborate with you?</summary>
-                <p>You can collaborate with me on innovative tech projects by contacting me through email or LinkedIn.
-                </p>
-            </details>
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-people-fill fs-3 me-2"></i>Clients</h2>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <img src="./img/clients/aurxon.jpg" alt="AURXON" class="client-logo img-fluid" loading="lazy"
+                        onerror="this.src='https://via.placeholder.com/100'">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="./img/clients/techcorp.jpg" alt="TechCorp" class="client-logo img-fluid" loading="lazy"
+                        onerror="this.src='https://via.placeholder.com/100'">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="./img/clients/innovate.jpg" alt="Innovate" class="client-logo img-fluid" loading="lazy"
+                        onerror="this.src='https://via.placeholder.com/100'">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="./img/clients/startup.jpg" alt="Startup" class="client-logo img-fluid" loading="lazy"
+                        onerror="this.src='https://via.placeholder.com/100'">
+                </div>
+            </div>
         </div>
     </section>
-    <section id="newsletter" class="newsletter-section section">
+    <section id="faq" class="section py-5">
         <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span
-                    class="material-symbols-outlined">newsletter</span> Stay Updated</h2>
-            <div class="newsletter-form">
+            <h2 class="section-header display-5 fw-bold mb-4"><i
+                    class="bi bi-question-circle-fill fs-3 me-2"></i>Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            What technologies do you specialize in?
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            I specialize in C/C++, Python, Java, JavaScript, HTML, CSS, SQL, Three.js, React.js, and
+                            Node.js, with expertise in Data Structures, Algorithms, and AI.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            Are you available for freelance projects?
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Absolutely, I'm open to freelance opportunities. Contact me to discuss your project!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            How can I collaborate with you?
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Reach out via email or LinkedIn to explore collaboration on innovative tech projects.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            What is your approach to 3D development?
+                        </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            I leverage Three.js to create immersive, interactive 3D experiences optimized for
+                            performance and user engagement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="newsletter" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-envelope-paper-fill fs-3 me-2"></i>Stay
+                Updated</h2>
+            <form class="newsletter-form needs-validation" novalidate>
                 <h3>Subscribe to My Newsletter</h3>
-                <input type="email" placeholder="Enter your email" aria-label="Email for Newsletter" required>
-                <button type="submit" class="btn">Subscribe</button>
+                <p>Join my community to receive updates on tech trends, projects, and insights.</p>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Enter your email"
+                        aria-label="Email for Newsletter" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <button type="submit" class="btn btn-primary"><i
+                        class="bi bi-send-fill fs-5 me-2"></i>Subscribe</button>
+            </form>
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="newsletterToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Notification</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Thank you for subscribing!
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <section id="contact" class="section">
+    <section id="contact" class="section py-5">
         <div class="container">
-            <h2 class="section-header d-flex align-items-center"><span class="material-symbols-outlined">mail</span>
-                Contact Me</h2>
-            <div class="mx-auto d-flex flex-column gap-3">
+            <h2 class="section-header display-5 fw-bold mb-4"><i class="bi bi-envelope-fill fs-3 me-2"></i>Contact Me
+            </h2>
+            <form class="contact-form needs-validation" novalidate>
                 <div class="mb-3">
                     <label for="name" class="form-label">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required
-                        class="form-control form-input" aria-label="Your Name">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required class="form-control"
+                        aria-label="Your Name">
+                    <div class="invalid-feedback">Please enter your name.</div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required
-                        class="form-control form-input" aria-label="Your Email">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required class="form-control"
+                        aria-label="Your Email">
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Your Message</label>
-                    <textarea id="message" name="message" placeholder="Your Message" required
-                        class="form-control form-input" rows="4" aria-label="Your Message"></textarea>
+                    <textarea id="message" name="message" placeholder="Your Message" required class="form-control"
+                        rows="4" aria-label="Your Message"></textarea>
+                    <div class="invalid-feedback">Please enter your message.</div>
                 </div>
-                <button type="submit" class="contact-btn btn align-self-start" aria-label="Send Message"><span
-                        class="material-symbols-outlined">send</span> Send Message</button>
+                <button type="submit" class="contact-btn btn btn-primary"><i class="bi bi-send-fill fs-5 me-2"></i>Send
+                    Message</button>
+            </form>
+            <div class="alert alert-success mt-3 d-none" role="alert">
+                Message sent successfully!
             </div>
-            <div class="social-links d-flex justify-content-center gap-3">
-                <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon"
-                    aria-label="LinkedIn"><span class="material-symbols-outlined">link</span></a>
-                <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"><span
-                        class="material-symbols-outlined">email</span></a>
-                <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon"
-                    aria-label="GitHub"><span class="material-symbols-outlined">code</span></a>
+            <div class="social-links d-flex justify-content-center gap-3 mt-4">
+                <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon" aria-label="LinkedIn"
+                    data-bs-toggle="tooltip" title="LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
+                <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"
+                    data-bs-toggle="tooltip" title="Email"><i class="bi bi-envelope-fill fs-4"></i></a>
+                <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon" aria-label="GitHub"
+                    data-bs-toggle="tooltip" title="GitHub"><i class="bi bi-github fs-4"></i></a>
                 <a href="https://leetcode.com/u/sanskratishuklaa" target="_blank" class="social-icon"
-                    aria-label="LeetCode"><span class="material-symbols-outlined">verified</span></a>
-                <a href="https://twitter.com/sanskratishukla" target="_blank" class="social-icon"
-                    aria-label="Twitter"><span class="material-symbols-outlined">share</span></a>
+                    aria-label="LeetCode" data-bs-toggle="tooltip" title="LeetCode"><i
+                        class="bi bi-code-slash fs-4"></i></a>
+                <a href="https://twitter.com/sanskratishukla" target="_blank" class="social-icon" aria-label="Twitter"
+                    data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter fs-4"></i></a>
             </div>
-            <div class="quote-container">
-                <p id="random-quote" class="quote-text"></p>
+            <div class="quote-container mt-4">
+                <p id="random-quote" class="quote-text text-center"></p>
             </div>
         </div>
     </section>
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" aria-label="Close Modal">×</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-description"></p>
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-description"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container">
+    <footer class="footer py-4 bg-dark text-white">
+        <div class="container text-center">
             <p class="footer-text">© 2025 Sanskrati Shukla. All rights reserved.</p>
-            <p class="footer-text">Crafted with <span class="heart">💡</span> by Sanskrati</p>
-            <div class="footer-date-time"></div>
+            <p class="footer-text">Crafted with <i class="bi bi-lightbulb-fill fs-5"></i> by Sanskrati Shukla</p>
+            <div class="footer-date-time mb-3"></div>
             <div class="footer-social-links d-flex justify-content-center gap-3">
                 <a href="https://linkedin.com/in/s-shuklaji23" target="_blank" class="social-icon"
-                    aria-label="LinkedIn"><span class="material-symbols-outlined">link</span></a>
-                <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"><span
-                        class="material-symbols-outlined">email</span></a>
-                <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon"
-                    aria-label="GitHub"><span class="material-symbols-outlined">code</span></a>
+                    aria-label="LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
+                <a href="mailto:sanskratishukla8@gmail.com" class="social-icon" aria-label="Email"><i
+                        class="bi bi-envelope-fill fs-4"></i></a>
+                <a href="https://github.com/sanskratishuklaa" target="_blank" class="social-icon" aria-label="GitHub"><i
+                        class="bi bi-github fs-4"></i></a>
             </div>
+        </div>
+        <!-- Dark/Light Mode Toggle Button -->
+        <div class="theme-toggle-wrapper position-fixed top-0 end-0 m-3 z-3">
+            <button id="theme-toggle" class="btn btn-outline-dark rounded-circle shadow" aria-label="Toggle Dark Mode">
+                <i class="bi bi-moon-fill fs-5" id="theme-icon"></i>
+            </button>
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
