@@ -107,60 +107,6 @@ backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
-            themeIcon.classList.remove('bi-moon-fill');
-            themeIcon.classList.add('bi-sun-fill');
-        } else {
-            themeIcon.classList.remove('bi-sun-fill');
-            themeIcon.classList.add('bi-moon-fill');
-        }
-    });
-
-    const typingElement = document.querySelector('.typing-name');
-    const text = 'Software Programmer';
-    let index = 0;
-
-    function type() {
-        if (index < text.length) {
-            typingElement.textContent = text.slice(0, index + 1);
-            index++;
-            setTimeout(type, 150);
-        }
-    }
-    setTimeout(type, 0);
-
-    const cursor = document.querySelector('.custom-cursor');
-    const orb = document.querySelector('.cursor-orb');
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-        orb.style.left = `${e.clientX}px`;
-        orb.style.top = `${e.clientY}px`;
-    });
-
-    const scrollProgress = document.querySelector('.scroll-progress');
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        scrollProgress.style.width = `${scrollPercent}%`;
-    });
-
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-});
-
 const typingText = document.querySelector('.typing-name');
 const typingWords = ['Sanskrati Shukla', 'A Developer', 'An Innovator', 'A Problem Solver'];
 let typingIndex = 0;
@@ -579,7 +525,7 @@ helixCamera.position.z = 6;
 
 const helixGeometry = new THREE.BufferGeometry();
 const helixCount = 1200;
-const helixPos = new Float32Array(helixCount * 3);
+const helixPoints = new Float32Array(helixCount * 3);
 for (let i = 0; i < helixCount; i++) {
     const t = i / helixCount * Math.PI * 4.5;
     helixPos[i * 3] = Math.cos(t) * 1.2;
@@ -915,377 +861,445 @@ certOrbitScene.add(new THREE.PointLight(0xE6E6FA, 1).setPosition(5, 5, 5));
 
 function animateCertOrbit() {
     certOrbits.forEach((orbit, i) => {
-        orbit.position.x = Math.cos(Date.now() * * _0x1c76[15] + i * Math[_0x1c76[13]] / _0x1c76[14]) * _0x1c76[16];
-        orbit[_0x1c76[2]][_0x1c76[17]] = Math[_0x1c76[18]](Date[_0x1c76[19]]() * _0x1c76[15] + i * Math[_0x1c76[13]] / _0x1c76[14]) * _0x1c76[16];
+        orbit.position.x = Math.cos(Date.now() * 0.0008 + i * Math.PI / 3.5) * 1.4;
+        orbit.position.z = Math.sin(Date.now() * 0.0008 + i * Math.PI / 3.5) * 1.4;
     });
-    certOrbitRenderer[_0x1c76[20]](certOrbitScene, certOrbitCamera);
+    certOrbitRenderer.render(certOrbitScene, certOrbitCamera);
     requestAnimationFrame(animateCertOrbit);
 }
 animateCertOrbit();
 
-const blogSpiralScene = new THREE[_0x1c76[21]]();
-const blogSpiralCamera = new THREE[_0x1c76[22]](_0x1c76[3], window[_0x1c76[23]] / window[_0x1c76[24]], _0x1c76[25], _0x1c76[4]);
-const blogSpiralRenderer = new THREE[_0x1c76[26]]({ alpha: true });
-blogSpiralRenderer[_0x1c76[27]](_0x1c76[28], _0x1c76[28]);
-document[_0x1c76[29]](_0x1c76[30])[_0x1c76[31]](blogSpiralRenderer[_0x1c76[32]]);
-blogSpiralCamera[_0x1c76[2]][_0x1c76[17]] = _0x1c76[5];
+const blogSpiralScene = new THREE.Scene();
+const blogSpiralCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const blogSpiralRenderer = new THREE.WebGLRenderer({ alpha: true });
+blogSpiralRenderer.setSize(220, 220);
+document.getElementById('blog').appendChild(blogSpiralRenderer.domElement);
+blogSpiralCamera.position.z = 6;
 
-const blogSpiralGeometry = new THREE[_0x1c76[33]]();
-const blogSpiralCount = _0x1c76[34];
-const blogSpiralPos = new Float32Array(blogSpiralCount * _0x1c76[1]);
-for (let i = _0x1c76[6]; i < blogSpiralCount; i++) {
-    const t = i / blogSpiralCount * Math[_0x1c76[13]] * _0x1c76[35];
-    blogSpiralPos[i * _0x1c76[1]] = t * _0x1c76[36] * Math[_0x1c76[37]](t);
-    blogSpiralPos[i * _0x1c76[1] + _0x1c76[7]] = t * _0x1c76[36] * Math[_0x1c76[18]](t);
-    blogSpiralPos[i * _0x1c76[1] + _0x1c76[8]] = t * _0x1c76[38];
+const blogSpiralGeometry = new THREE.BufferGeometry();
+const blogSpiralCount = 900;
+const blogSpiralPos = new Float32Array(blogSpiralCount * 3);
+for (let i = 0; i < blogSpiralCount; i++) {
+    const t = i / blogSpiralCount * Math.PI * 6.5;
+    blogSpiralPos[i * 3] = t * 0.12 * Math.cos(t);
+    blogSpiralPos[i * 3 + 1] = t * 0.12 * Math.sin(t);
+    blogSpiralPos[i * 3 + 2] = t * 0.06;
 }
-blogSpiralGeometry[_0x1c76[39]](_0x1c76[0], new THREE[_0x1c76[40]](blogSpiralPos, _0x1c76[1]));
-const blogSpiralMaterial = new THREE[_0x1c76[41]]({ size: _0x1c76[42], color: _0x1c76[43] });
-const blogSpiral = new THREE[_0x1c76[44]](blogSpiralGeometry, blogSpiralMaterial);
-blogSpiralScene[_0x1c76[45]](blogSpiral);
-blogSpiralScene[_0x1c76[45]](new THREE[_0x1c76[46]](_0x1c76[47], _0x1c76[48]));
-blogSpiralScene[_0x1c76[45]](new THREE[_0x1c76[49]](_0x1c76[50], _0x1c76[7])[_0x1c76[51]](_0x1c76[52], _0x1c76[52], _0x1c76[52]));
+blogSpiralGeometry.setAttribute('position', new THREE.BufferAttribute(blogSpiralPos, 3));
+const blogSpiralMaterial = new THREE.PointsMaterial({ size: 0.025, color: 0x9370DB });
+const blogSpiral = new THREE.Points(blogSpiralGeometry, blogSpiralMaterial);
+blogSpiralScene.add(blogSpiral);
+blogSpiralScene.add(new THREE.AmbientLight(0xE6E6FA, 0.6));
+blogSpiralScene.add(new THREE.PointLight(0xE6E6FA, 1).setPosition(5, 5, 5));
 
 function animateBlogSpiral() {
-    blogSpiral[_0x1c76[53]][_0x1c76[17]] += _0x1c76[54];
-    blogSpiralRenderer[_0x1c76[20]](blogSpiralScene, blogSpiralCamera);
+    blogSpiral.rotation.z += 0.008;
+    blogSpiralRenderer.render(blogSpiralScene, blogSpiralCamera);
     requestAnimationFrame(animateBlogSpiral);
 }
 animateBlogSpiral();
 
-const contactPulseScene = new THREE[_0x1c76[21]]();
-const contactPulseCamera = new THREE[_0x1c76[22]](_0x1c76[3], window[_0x1c76[23]] / window[_0x1c76[24]], _0x1c76[25], _0x[c76[4]]);
-const contactPulseRenderer = new THREE[_0x1c76[26]]({ alpha: true });
-contactPulseRenderer[_0x1c76[27]](_0x1c76[28], _0x1c76[28]);
-document[_0x1c76[29]](_0x1c76[55])[_0x1c76[31]](contactPulseRenderer[_0x1c76[32]]);
-contactPulseCamera[_0x1c76[2]][_0x1c76[17]] = _0x1c76[5];
+const contactPulseScene = new THREE.Scene();
+const contactPulseCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const contactPulseRenderer = new THREE.WebGLRenderer({ alpha: true });
+contactPulseRenderer.setSize(220, 220);
+document.getElementById('contact').appendChild(contactPulseRenderer.domElement);
+contactPulseCamera.position.z = 6;
 
-const contactPulseGeometry = new THREE[_0x1c76[56]](_0x1c76[57], _0x1c76[58], _0x1c76[58]);
-const contactPulseMaterial = new THREE[_0x1c76[59]]({ color: _0x1c76[60] });
-const contactPulseMesh = new THREE[_0x1c76[61]](contactPulseGeometry, contactPulseMaterial);
-contactPulseScene[_0x1c76[45]](contactPulseMesh);
-contactPulseScene[_0x1c76[45]](new THREE[_0x1c76[46]](_0x1c76[47], _0x1c76[48]));
-contactPulseScene[_0x1c76[45]](new THREE[_0x1c76[49]](_0x1c76[50], _0x1c76[7])[_0x1c76[51]](_0x1c76[52], _0x1c76[52], _0x1c76[52]));
+const contactPulseGeometry = new THREE.SphereGeometry(0.9, 32, 32);
+const contactPulseMaterial = new THREE.MeshStandardMaterial({ color: 0xE6E6FA });
+const contactPulseMesh = new THREE.Mesh(contactPulseGeometry, contactPulseMaterial);
+contactPulseScene.add(contactPulseMesh);
+contactPulseScene.add(new THREE.AmbientLight(0xE6E6FA, 0.6));
+contactPulseScene.add(new THREE.PointLight(0xE6E6FA, 1).setPosition(5, 5, 5));
 
 function animateContactPulse() {
-    contactPulseMesh[_0x1c76[62]][_0x1c76[63]](_0x1c76[7] + _0x1c76[64] * Math[_0x1c76[65]](Date[_0x1c76[19]]() * _0x1c76[66]));
-    contactPulseRenderer[_0x1c76[20]](contactPulseScene, contactPulseCamera);
+    contactPulseMesh.scale.setScalar(1 + 0.12 * Math.sin(Date.now() * 0.0018));
+    contactPulseRenderer.render(contactPulseScene, contactPulseCamera);
     requestAnimationFrame(animateContactPulse);
 }
 animateContactPulse();
 
-// Setup
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75, // field of view
-  window.innerWidth / window.innerHeight, // aspect ratio
-  0.1, // near clipping plane
-  1000 // far clipping plane
-);
+const starFieldScene = new THREE.Scene();
+const starFieldCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const starFieldRenderer = new THREE.WebGLRenderer({ alpha: true });
+starFieldRenderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('home').appendChild(starFieldRenderer.domElement);
+starFieldCamera.position.z = 12;
 
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-camera.position.z = 1;
-
-// Starfield Geometry
-const geometry = new THREE.BufferGeometry();
-const starCount = 10000;
-const positions = new Float32Array(starCount * 3);
-
-for (let i = 0; i < starCount * 3; i++) {
-  positions[i] = (Math.random() - 0.5) * 2000; // Spread stars over space
+const starFieldGeometry = new THREE.BufferGeometry();
+const starFieldCount = 6000;
+const starFieldPos = new Float32Array(starFieldCount * 3);
+for (let i = 0; i < starFieldCount * 3; i++) {
+    starFieldPos[i] = (Math.random() - 0.5) * 22;
 }
+starFieldGeometry.setAttribute('position', new THREE.BufferAttribute(starFieldPos, 3));
+const starFieldMaterial = new THREE.PointsMaterial({ size: 0.04, color: 0xE6E6FA });
+const starField = new THREE.Points(starFieldGeometry, starFieldMaterial);
+starFieldScene.add(starField);
+starFieldScene.add(new THREE.AmbientLight(0xE6E6FA, 0.6));
 
-geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-const material = new THREE.PointsMaterial({
-  size: 1,
-  color: 0xffffff
-});
-
-const stars = new THREE.Points(geometry, material);
-scene.add(stars);
-
-// Light (optional for slight illumination)
-const light = new THREE.PointLight(0xffffff, 1);
-light.position.set(0, 0, 1);
-scene.add(light);
-
-// Animation loop
-function animate() {
-  const posArray = geometry.attributes.position.array;
-
-  for (let i = 0; i < starCount * 3; i += 3) {
-    posArray[i + 2] -= 1; // Move star towards camera
-
-    if (posArray[i + 2] < -1000) {
-      posArray[i + 2] = 1000; // Reset star to far back
+function animateStarField() {
+    const positions = starFieldGeometry.attributes.position.array;
+    for (let i = 0; i < starFieldCount * 3; i += 3) {
+        positions[i + 2] -= 0.04;
+        if (positions[i + 2] < -12) positions[i + 2] = 12;
     }
-  }
-
-  geometry.attributes.position.needsUpdate = true;
-
-  renderer.render(scene, camera);
-  requestAnimationFrame(animate);
+    starFieldGeometry.attributes.position.needsUpdate = true;
+    starFieldRenderer.render(starFieldScene, starFieldCamera);
+    requestAnimationFrame(animateStarField);
 }
+animateStarField();
 
-animate();
+const skillOrbitScene = new THREE.Scene();
+const skillOrbitCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const skillOrbitRenderer = new THREE.WebGLRenderer({ alpha: true });
+skillOrbitRenderer.setSize(220, 220);
+document.getElementById('skills').appendChild(skillOrbitRenderer.domElement);
+skillOrbitCamera.position.z = 6;
 
-const skillOrbitScene = new THREE[_0x1c76[21]]();
-const skillOrbitCamera = new THREE[_0x1c76[22]](_0x1c76[3], window[_0x1c76[23]] / window[_0x3c76[24]]], _0x1c76[25], _0x1c76[4]);
-const skillOrbitRenderer = new THREE[_0x1c76[26]]({ alpha: true });
-skillOrbitRenderer[_0x1c76[27]](_0x1c76[28], _0x1c76[28]]);
-document[_0x1c76[29]](_0x1c76[80])[_0x1c76[31]](skillOrbitRenderer[_0x1c76[32]]);
-skillOrbitCamera[_0x1c76[2]][_0x1c76[17]] = _0x1c76[5];
-
-const skillOrbitGeometry = new THREE[_0x1c76[81]](_0x1c76[82], _0x1c76[83], _0x1c76[83]);
-const skillOrbitMaterial = new THREE[_0x1c76[84]]({ color: _0x1c76[85] });
+const skillOrbitGeometry = new THREE.SphereGeometry(0.25, 16, 16);
+const skillOrbitMaterial = new THREE.MeshStandardMaterial({ color: 0x4169E1 });
 const skillOrbits = [];
-for (let i = _0x1c76[6]; i < _0x1c76[86]; i++) {
-    const orbit = new THREE[_0x1c76[87]](skillOrbitGeometry, skillOrbitMaterial);
-    orbit[_0x1c76[2]][_0x1c76[88]] = Math[_0x1c76[89]](i * Math[_0x1c76[90]] / _0x1c76[91]) * _0x1c76[92];
-    orbit[_0x1c76[2]][_0x1c76[93]] = Math[_0x1c76[94]](i * Math[_0x1c76[95]] / _0x1c76[96]) * _0x1c76[97];
-    skillOrbits[_0x1c76[98]](orbit);
-    skillOrbitScene[_0x1c76[99]](orbit);
+for (let i = 0; i < 5; i++) {
+    const orbit = new THREE.Mesh(skillOrbitGeometry, skillOrbitMaterial);
+    orbit.position.x = Math.cos(i * Math.PI / 2.5) * 1.6;
+    orbit.position.z = Math.sin(i * Math.PI / 2.5) * 1.6;
+    skillOrbits.push(orbit);
+    skillOrbitScene.add(orbit);
 }
-skillOrbitScene[_0x1c76[100]](new THREE[_0x1c76[101]](_0x1c76[102], _0x1c76[103]));
-skillOrbitScene[_0x1c76[104]](new THREE[_0x1c76[105]](_0x1c76[106], _0x1c76[107])[_0x1c76[108]](_0x1c76[109], _0x1c76[110], _0x1c76[111]));
+skillOrbitScene.add(new THREE.AmbientLight(0xE6E6FA, 0.6));
+skillOrbitScene.add(new THREE.PointLight(0xE6E6FA, 1).setPosition(5, 5, 5));
 
 function animateSkillOrbit() {
-    skillOrbits[_0x1c76[112]]((orbit, i) => {
-        orbit[_0x1c76[113]][_0x1c76[114]] = Math[_0x1c76[115]](Date[_0x1c76[116]]() * _0x1c76[117] + i * Math[_0x1c76[118]] / _0x1c76[119]) * _0x1c76[120];
-        orbit[_0x1c76[121]][_0x1c76[122]] = Math[_0x1c76[123]](Date[_0x1c76[124]]() * _0x1c76[125] + i * Math[_0x1c76[126]] / _0x1c76[127]) * _0x1c76[128];
+    skillOrbits.forEach((orbit, i) => {
+        orbit.position.x = Math.cos(Date.now() * 0.0008 + i * Math.PI / 2.5) * 1.6;
+        orbit.position.z = Math.sin(Date.now() * 0.0008 + i * Math.PI / 2.5) * 1.6;
     });
-    skillOrbitRenderer[_0x1c76[129]](skillOrbitScene, skillOrbitCamera);
+    skillOrbitRenderer.render(skillOrbitScene, skillOrbitCamera);
     requestAnimationFrame(animateSkillOrbit);
 }
 animateSkillOrbit();
 
-const icosahedronSwarmScene = new THREE[_0x1c76[130]]();
-const icosahedronSwarmCamera = new THREE[_0x1c76[131]](_0x1c76[132], window[_0x1c76[133]] / window[_0x1c76[134]], _0x1c76[135], _0x1c76[136]);
-const icosahedronSwarmRenderer = new THREE[_0x1c76[137]]({ alpha: true });
-icosahedronSwarmRenderer[_0x1c76[138]](_0x1c76[139], _0x1c76[140]);
-document[_0x1c76[141]](_0x1c76[142])[_0x1c76[143]](icosahedronSwarmRenderer[_0x1c76[144]]);
-icosahedronSwarmCamera[_0x1c76[145]][_0x1c76[146]] = _0x1c76[147];
+const icosahedronSwarmScene = new THREE.Scene();
+const icosahedronSwarmCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const icosahedronSwarmRenderer = new THREE.WebGLRenderer({ alpha: true });
+icosahedronSwarmRenderer.setSize(320, 320);
+document.getElementById('home').appendChild(icosahedronSwarmRenderer.domElement);
+icosahedronSwarmCamera.position.z = 12;
 
-const icosahedronGeometry = new THREE[_0x1c76[148]](_0x1c76[149], _0x1c76[150]);
-const icosahedronMaterial = new THREE[_0x1c76[151]]({ color: _0x1c76[152] });
+const icosahedronGeometry = new THREE.IcosahedronGeometry(0.35, 0);
+const icosahedronMaterial = new THREE.MeshStandardMaterial({ color: 0x8A2BE2 });
 const icosahedrons = [];
-for (let i = _0x1c76[153]; i < _0x1c76[154]; i++) {
-    const icosahedron = new THREE[_0x1c76[155]](icosahedronGeometry, icosahedronMaterial);
-    icosahedron[_0x1c76[156]][_0x1c76[157]](_0x1c76[158], _0x1c76[159], _0x1c76[160]);
-    icosahedrons[_0x1c76[161]](icosahedron);
-    icosahedronSwarmScene[_0x1c76[162]](icosahedron);
+for (let i = 0; i < 22; i++) {
+    const icosahedron = new THREE.Mesh(icosahedronGeometry, icosahedronMaterial);
+    icosahedron.position.set((Math.random() - 0.5) * 5.5, (Math.random() - 0.5) * 5.5, (Math.random() - 0.5) * 5.5);
+    icosahedrons.push(icosahedron);
+    icosahedronSwarmScene.add(icosahedron);
 }
-icosahedronSwarmScene[_0x1c76[163]](new THREE[_0x1c76[164]](_0x1c76[165], _0x1c76[166]));
-icosahedronSwarmScene[_0x1c76[167]](new THREE[_0x1c76[168]](_0x1c76[169], _0x1c76[170])[_0x1c76[171]](_0x1c76[172], _0x1c76[173], _0x1c76[174]));
+icosahedronSwarmScene.add(new THREE.AmbientLight(0xE6E6FA, 0.6));
+icosahedronSwarmScene.add(new THREE.PointLight(0xE6E6FA, 1).setPosition(5, 5, 5));
 
 function animateIcosahedronSwarm() {
-    icosahedrons[_0x1c76[175]]((icosahedron, i) => {
-        icosahedron[_0x1c76[176]][_0x1c76[177]] += _0x1c76[178];
-        icosahedron[_0x1c76[179]][_0x1c76[180]] += _0x1c76[181];
-        icosahedron[_0x1c76[182]][_0x1c76[183]] += Math[_0x1c76[184]](Date[_0x1c76[185]]() * _0x1c76[186] + i) * _0x1c76[187];
+    icosahedrons.forEach((icosahedron, i) => {
+        icosahedron.rotation.x += 0.012;
+        icosahedron.rotation.y += 0.012;
+        icosahedron.position.y += Math.sin(Date.now() * 0.0008 + i) * 0.018;
     });
-    icosahedronSwarmRenderer[_0x1c76[188]](icosahedronSwarmScene, icosahedronSwarmCamera);
+    icosahedronSwarmRenderer.render(icosahedronSwarmScene, icosahedronSwarmCamera);
     requestAnimationFrame(animateIcosahedronSwarm);
 }
 animateIcosahedronSwarm();
 
-const vortexScene = new THREE[_0x1c76[189]]();
-const vortexCamera = new THREE[_0x1c76[190]](_0x1c76[191], window[_0x1c76[192]] / window[_0x1c76[193]], _0x1c76[194], _0x1c76[195]);
-const vortexRenderer = new THREE[_0x1c76[196]]({ alpha: true });
-vortexRenderer[_0x1c76[197]](_0x1c76[198], _0x1c76[199]);
-document[_0x1c76[200]](_0x1c76[201])[_0x1c76[202]](vortexRenderer[_0x1c76[203]]);
-vortexCamera[_0x1c76[204]][_0x1c76[205]] = _0x1c76[206];
+const vortexScene = new THREE.Scene();
+const vortexCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const vortexRenderer = new THREE.WebGLRenderer({ alpha: true });
+vortexRenderer.setSize(320, 320);
+document.getElementById('about').appendChild(vortexRenderer.domElement);
+vortexCamera.position.z = 6;
 
-const vortexGeometry = new THREE[_0x1c76[207]]();
-const vortexCount = _0x1c76[208];
-const vortexPos = new Float32Array(vortexCount * _0x1c76[209]);
-for (let i = _0x1c76[210]; i < vortexCount; i++) {
-    const t = i / vortexCount * Math[_0x1c76[211]] * _0x1c76[212];
-    const r = t * _0x1c76[213];
-    vortexPos[i * _0x1c76[214]] = r * Math[_0x1c76[215]](t);
-    vortexPos[i * _0x1c76[216] + _0x1c76[217]] = r * Math[_0x1c76[218]](t);
-    vortexPos[i * _0x1c76[219] + _0x1c76[220]] = t * _0x1c76[221] - _0x1c76[222];
+const vortexGeometry = new THREE.BufferGeometry();
+const vortexCount = 2200;
+const vortexPos = new Float32Array(vortexCount * 3);
+for (let i = 0; i < vortexCount; i++) {
+    const t = i / vortexCount * Math.PI * 10.5;
+    const r = t * 0.12;
+    vortexPos[i * 3] = r * Math.cos(t);
+    vortexPos[i * 3 + 1] = r * Math.sin(t);
+    vortexPos[i * 3 + 2] = t * 0.06 - 2.2;
 }
-vortexGeometry[_0x1c76[223]](_0x1c76[224], new THREE[_0x1c76[225]](vortexPos, _0x1c76[226]));
-const vortexMaterial = new THREE[_0x1c76[227]]({ size: _0x1c76[228], color: _0x1c76[229] });
-const vortex = new THREE[_0x1c76[230]](vortexGeometry, vortexMaterial);
-vortexScene[_0x1c76[231]](vortex);
-vortexScene[_0x1c76[232]](new THREE[_0x1c76[233]](_0x1c76[234], _0x1c76[235]));
-vortexScene[_0x1c76[236]](new THREE[_0x1c76[237]](_0x1c76[238], _0x1c76[239])[_0x1c76[240]](_0x1c76[241], _0x1c76[242], _0x1c76[243]));
+vortexGeometry.setAttribute('position', new THREE.BufferAttribute(vortexPos, 3));
+const vortexMaterial = new THREE.PointsMaterial({ size: 0.025, color: 0x9370DB });
+const vortex = new THREE.Points(vortexGeometry, vortexMaterial);
+vortexScene.add(vortex);
+vortexScene.add(new THREE.AmbientLight(0xE6E6FA, 0.6));
+vortexScene.add(new THREE.PointLight(0xE6E6FA, 1).setPosition(5, 5, 5));
 
 function animateVortex() {
-    vortex[_0x1c76[244]][_0x1c76[245]] += _0x1c76[246];
-    vortexRenderer[_0x1c76[247]](vortexScene, vortexCamera);
+    vortex.rotation.z += 0.015;
+    vortexRenderer.render(vortexScene, vortexCamera);
     requestAnimationFrame(animateVortex);
 }
 animateVortex();
 
-const torusKnotScene = new THREE[_0x1c76[248]]();
-const torusKnotCamera = new THREE[_0x1c76[249]](_0x1c76[250], window[_0x1c76[251]] / window[_0x1c76[252]], _0x1c76[253], _0x1c76[254]);
-const torusKnotRenderer = new THREE[_0x1c76[255]]({ alpha: true });
-torusKnotRenderer[_0x1c76[256]](_0x1c76[257], _0x1c76[258]);
-document[_0x1c76[259]](_0x1c76[260])[_0x1c76[261]](torusKnotRenderer[_0x1c76[262]]);
-torusKnotCamera[_0x1c76[263]][_0x1c76[264]] = _0x1c76[265];
+const torusKnotScene = new THREE.Scene();
+const torusKnotCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const torusKnotRenderer = new THREE.WebGLRenderer({ alpha: true });
+torusKnotRenderer.setSize(320, 320);
+document.getElementById('projects').appendChild(torusKnotRenderer.domElement);
+torusKnotCamera.position.z = 6;
 
-const torusKnotGeometry = new THREE[_0x1c76[266]](_0x1c76[267], _0x1c76[268], _0x1c76[269], _0x1c76[270]);
-const torusKnotMaterial = new THREE[_0x1c76[271]]({ color: _0x1c76[272] });
-const torusKnot = new THREE[_0x1c76[273]](torusKnotGeometry, torusKnotMaterial);
-torusKnotScene[_0x1c76[274]](torusKnot);
-torusKnotScene[_0x1c76[275]](new THREE[_0x1c76[276]](_0x1c76[277], _0x1c76[278]));
-torusKnotScene[_0x1c76[279]](new THREE[_0x1c76[280]](_0x1c76[281], _0x1c76[282])[_0x1c76[283]](_0x1c76[284], _0x1c76[285], _0x1c76[286]));
+const torusKnotGeometry = new THREE.TorusKnotGeometry(0.9, 0.25, 100, 16);
+const torusKnotMaterial = new THREE.MeshStandardMaterial({ color: 0xE6E6FA });
+const torusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial);
+torusKnotScene.add(torusKnot);
+torusKnotScene.add(new THREE.AmbientLight(0xE6E6FA, 0.6));
+torusKnotScene.add(new THREE.PointLight(0xE6E6FA, 1).setPosition(5, 5, 5));
 
 function animateTorusKnot() {
-    torusKnot[_0x1c76[287]][_0x1c76[288]] += _0x1c76[289];
-    torusKnot[_0x1c76[290]][_0x1c76[291]] += _0x1c76[292];
-    torusKnot[_0x1c76[293]][_0x1c76[294]](_0x1c76[295] + _0x1c76[296] * Math[_0x1c76[297]](Date[_0x1c76[298]]() * _0x1c76[299]));
-    torusKnotRenderer[_0x1c76[300]](torusKnotScene, torusKnotCamera);
+    torusKnot.rotation.x += 0.012;
+    torusKnot.rotation.y += 0.012;
+    torusKnot.scale.setScalar(1 + 0.12 * Math.sin(Date.now() * 0.0018));
+    torusKnotRenderer.render(torusKnotScene, torusKnotCamera);
     requestAnimationFrame(animateTorusKnot);
 }
 animateTorusKnot();
 
 const profileImg = document.querySelector('.profile-img');
-profileImg.style.transition = 'all 0.5s ease';
-gsap.from(profileImg, { opacity: 0, scale: 0.8, duration: 1, ease: 'power2.out' });
+profileImg.style.display = 'block';
+gsap.from(profileImg, { opacity: 0, scale: 0.6, duration: 1.2, ease: 'back.out(1.8)' });
 
-gsap.from('.hero-text', { y: 50, opacity: 0, duration: 1.2, ease: 'power3.out' });
-gsap.from('.typing-name', { opacity: 0, y: 30, duration: 1, ease: 'power2.out', delay: 0.5 });
-gsap.from('.social-links a', { x: -50, opacity: 0, duration: 0.8, stagger: 0.2, delay: 0.8 });
-gsap.from('.nav-link', { opacity: 0, y: -20, duration: 0.8, stagger: 0.1, delay: 1 });
+gsap.from('.navbar', { y: -120, opacity: 0, duration: 1.2, ease: 'power2.out' });
+gsap.from('.hero-content', { opacity: 0, y: 60, duration: 1.8, ease: 'power2.out', delay: 0.6 });
+gsap.from('.social-sidebar a', { x: -60, opacity: 0, duration: 0.6, stagger: 0.12, delay: 1.8 });
+gsap.from('.about-content p', { opacity: 0, y: 25, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#about', start: 'top 85%' } });
+gsap.from('.timeline-item', { opacity: 0, x: -60, duration: 1.2, stagger: 0.35, scrollTrigger: { trigger: '#about', start: 'top 85%' } });
+gsap.from('.service-card', { opacity: 0, scale: 0.7, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#services', start: 'top 85%' } });
+gsap.from('.skill-card', { opacity: 0, y: 60, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#skills', start: 'top 85%' } });
+gsap.from('.project-card', { opacity: 0, x: 60, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#projects', start: 'top 85%' } });
+gsap.from('.certification-card', { opacity: 0, y: 60, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#certifications', start: 'top 85%' } });
+gsap.from('.blog-card', { opacity: 0, scale: 0.7, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#blog', start: 'top 85%' } });
+gsap.from('.stats-card', { opacity: 0, y: 60, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#stats', start: 'top 85%' } });
+gsap.from('.faq-item', { opacity: 0, x: -60, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#faq', start: 'top 85%' } });
+gsap.from('.newsletter-form', { opacity: 0, y: 60, duration: 1.2, scrollTrigger: { trigger: '#newsletter', start: 'top 85%' } });
+gsap.from('.contact-btn', { opacity: 0, scale: 0.7, duration: 1.2, scrollTrigger: { trigger: '#contact', start: 'top 85%' } });
+gsap.from('.form-input', { opacity: 0, y: 25, duration: 1.2, stagger: 0.25, scrollTrigger: { trigger: '#contact', start: 'top 85%' } });
 
-gsap.from('.section-title', {
-    scrollTrigger: { trigger: '.section-title', start: 'top 85%' },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    ease: 'power2.out'
-});
-
-gsap.from('.about-text', {
-    scrollTrigger: { trigger: '.about-text', start: 'top 85%' },
-    opacity: 0,
-    x: -50,
-    duration: 1,
-    ease: 'power3.out'
-});
-
-gsap.from('.skills-grid .skill-item', {
-    scrollTrigger: { trigger: '.skills-grid', start: 'top 85%' },
-    opacity: 0,
-    scale: 0.9,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'back.out(1.7)'
-});
-
-gsap.from('.project-card', {
-    scrollTrigger: { trigger: '.project-carousel', start: 'top 85%' },
-    opacity: 0,
-    y: 50,
-    duration: 0.8,
-    stagger: 0.3,
-    ease: 'power2.out'
-});
-
-gsap.from('.certification-item', {
-    scrollTrigger: { trigger: '.certifications-grid', start: 'top 85%' },
-    opacity: 0,
-    x: 50,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-});
-
-gsap.from('.blog-post', {
-    scrollTrigger: { trigger: '.blog-grid', start: 'top 85%' },
-    opacity: 0,
-    y: 50,
-    duration: 0.8,
-    stagger: 0.3,
-    ease: 'power2.out'
-});
-
-gsap.from('.contact-form input, .contact-form textarea', {
-    scrollTrigger: { trigger: '.contact-form', start: 'top 85%' },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power2.out'
-});
-
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-        gsap.to(link, { color: '#8A2BE2', duration: 0.3 });
-        gsap.to(navLinks, { color: '#333', duration: 0.3 });
-    });
-});
-
-const skillItems = document.querySelectorAll('.skill-item');
-skillItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        gsap.to(item, { scale: 1.1, duration: 0.3, ease: 'power2.out' });
-    });
-    item.addEventListener('mouseleave', () => {
-        gsap.to(item, { scale: 1, duration: 0.3, ease: 'power2.out' });
-    });
-});
-
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
-    });
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
-    });
-});
-
-window.addEventListener('resize', () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
+function handleResize() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    sphereRenderer.setSize(window.innerWidth, window.innerHeight);
-    sphereCamera.aspect = window.innerWidth / window.innerHeight;
+    renderer.setSize(width, height);
+    cubeCamera.aspect = 1;
+    cubeCamera.updateProjectionMatrix();
+    cubeRenderer.setSize(Math.min(250, width * 0.35), Math.min(250, width * 0.35));
+    sphereCamera.aspect = width / height;
     sphereCamera.updateProjectionMatrix();
-    torusRenderer.setSize(220, 220);
-    skillRenderer.setSize(320, 320);
-    projectRenderer.setSize(420, 420);
-    certRenderer.setSize(320, 320);
-    blogRenderer.setSize(320, 320);
-    interactiveSphereRenderer.setSize(320, 320);
-    particleSphereRenderer.setSize(420, 420);
-    ringRenderer.setSize(220, 220);
-    skillHoverRenderer.setSize(160, 160);
-    projectHoverRenderer.setSize(160, 160);
-    certHoverRenderer.setSize(160, 160);
-    blogHoverRenderer.setSize(160, 160);
-    contactRenderer.setSize(320, 320);
-    helixRenderer.setSize(320, 320);
-    prismRenderer.setSize(220, 220);
-    galaxyRenderer.setSize(520, 520);
-    morphRenderer.setSize(320, 320);
-    waveRenderer.setSize(420, 420);
-    orbitRenderer.setSize(320, 320);
-    spiralRenderer.setSize(320, 320);
-    pulseRenderer.setSize(320, 320);
-    gridRenderer.setSize(420, 420);
-    cubeGridRenderer.setSize(320, 320);
-    skillPulseRenderer.setSize(220, 220);
-    projectWaveRenderer.setSize(320, 320);
-    certOrbitRenderer.setSize(220, 220);
-    blogSpiralRenderer.setSize(320, 320);
-    contactPulseRenderer.setSize(320, 320);
-    starFieldRenderer.setSize(window.innerWidth, window.innerHeight);
-    skillOrbitRenderer.setSize(220, 220);
-    icosahedronSwarmRenderer.setSize(320, 320);
-    vortexRenderer.setSize(320, 320);
-    torusKnotRenderer.setSize(320, 320);
+    sphereRenderer.setSize(width, height);
+    torusCamera.aspect = width / height;
+    torusCamera.updateProjectionMatrix();
+    torusRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    skillCamera.aspect = width / height;
+    skillCamera.updateProjectionMatrix();
+    skillRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    projectCamera.aspect = width / height;
+    projectCamera.updateProjectionMatrix();
+    projectRenderer.setSize(Math.min(420, width * 0.55), Math.min(420, width * 0.55));
+    certCamera.aspect = width / height;
+    certCamera.updateProjectionMatrix();
+    certRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    blogCamera.aspect = width / height;
+    blogCamera.updateProjectionMatrix();
+    blogRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    interactiveSphereCamera.aspect = width / height;
+    interactiveSphereCamera.updateProjectionMatrix();
+    interactiveSphereRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    particleSphereCamera.aspect = width / height;
+    particleSphereCamera.updateProjectionMatrix();
+    particleSphereRenderer.setSize(Math.min(420, width * 0.55), Math.min(420, width * 0.55));
+    ringCamera.aspect = width / height;
+    ringCamera.updateProjectionMatrix();
+    ringRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    skillHoverCamera.aspect = width / height;
+    skillHoverCamera.updateProjectionMatrix();
+    skillHoverRenderer.setSize(Math.min(160, width * 0.25), Math.min(160, width * 0.25));
+    projectHoverCamera.aspect = width / height;
+    projectHoverCamera.updateProjectionMatrix();
+    projectHoverRenderer.setSize(Math.min(160, width * 0.25), Math.min(160, width * 0.25));
+    certHoverCamera.aspect = width / height;
+    certHoverCamera.updateProjectionMatrix();
+    certHoverRenderer.setSize(Math.min(160, width * 0.25), Math.min(160, width * 0.25));
+    blogHoverCamera.aspect = width / height;
+    blogHoverCamera.updateProjectionMatrix();
+    blogHoverRenderer.setSize(Math.min(160, width * 0.25), Math.min(160, width * 0.25));
+    contactCamera.aspect = width / height;
+    contactCamera.updateProjectionMatrix();
+    contactRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    helixCamera.aspect = width / height;
+    helixCamera.updateProjectionMatrix();
+    helixRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    prismCamera.aspect = width / height;
+    prismCamera.updateProjectionMatrix();
+    prismRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    galaxyCamera.aspect = width / height;
+    galaxyCamera.updateProjectionMatrix();
+    galaxyRenderer.setSize(Math.min(520, width * 0.65), Math.min(520, height * 0.65));
+    morphCamera.aspect = width / height;
+    morphCamera.updateProjectionMatrix();
+    morphRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    waveCamera.aspect = width / height;
+    waveCamera.updateProjectionMatrix();
+    waveRenderer.setSize(Math.min(420, width * 0.55), Math.min(420, width * 0.55));
+    orbitCamera.aspect = width / height;
+    orbitCamera.updateProjectionMatrix();
+    orbitRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    spiralCamera.aspect = width / height;
+    spiralCamera.updateProjectionMatrix();
+    spiralRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    pulseCamera.aspect = width / height;
+    pulseCamera.updateProjectionMatrix();
+    pulseRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    gridCamera.aspect = width / height;
+    gridCamera.updateProjectionMatrix();
+    gridRenderer.setSize(Math.min(420, width * 0.55), Math.min(420, width * 0.55));
+    cubeGridCamera.aspect = width / height;
+    cubeGridCamera.updateProjectionMatrix();
+    cubeGridRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    skillPulseCamera.aspect = width / height;
+    skillPulseCamera.updateProjectionMatrix();
+    skillPulseRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    projectWaveCamera.aspect = width / height;
+    projectWaveCamera.updateProjectionMatrix();
+    projectWaveRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    certOrbitCamera.aspect = width / height;
+    certOrbitCamera.updateProjectionMatrix();
+    certOrbitRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    blogSpiralCamera.aspect = width / height;
+    blogSpiralCamera.updateProjectionMatrix();
+    blogSpiralRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    contactPulseCamera.aspect = width / height;
+    contactPulseCamera.updateProjectionMatrix();
+    contactPulseRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    starFieldCamera.aspect = width / height;
+    starFieldCamera.updateProjectionMatrix();
+    starFieldRenderer.setSize(width, height);
+    skillOrbitCamera.aspect = width / height;
+    skillOrbitCamera.updateProjectionMatrix();
+    skillOrbitRenderer.setSize(Math.min(220, width * 0.3), Math.min(220, width * 0.3));
+    icosahedronSwarmCamera.aspect = width / height;
+    icosahedronSwarmCamera.updateProjectionMatrix();
+    icosahedronSwarmRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    vortexCamera.aspect = width / height;
+    vortexCamera.updateProjectionMatrix();
+    vortexRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+    torusKnotCamera.aspect = width / height;
+    torusKnotCamera.updateProjectionMatrix();
+    torusKnotRenderer.setSize(Math.min(320, width * 0.45), Math.min(320, width * 0.45));
+}
+window.addEventListener('resize', () => {
+    clearTimeout(window.resizeTimeout);
+    window.resizeTimeout = setTimeout(handleResize, 100);
+});
+handleResize();
+
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (contactForm.checkValidity()) {
+        const alert = document.querySelector('.alert');
+        alert.classList.remove('d-none');
+        gsap.from(alert, { opacity: 0, y: 25, duration: 0.6 });
+        contactForm.reset();
+        setTimeout(() => alert.classList.add('d-none'), 3500);
+    } else {
+        contactForm.classList.add('was-validated');
+    }
+});
+
+const newsletterForm = document.querySelector('.newsletter-form');
+newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (newsletterForm.checkValidity()) {
+        const toast = new bootstrap.Toast(document.getElementById('newsletterToast'));
+        toast.show();
+        gsap.from('.toast', { opacity: 0, x: 60, duration: 0.6 });
+        newsletterForm.reset();
+    } else {
+        newsletterForm.classList.add('was-validated');
+    }
+});
+
+gsap.utils.toArray('.nav-link').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        gsap.to(link, { scale: 1.12, duration: 0.35 });
+    });
+    link.addEventListener('mouseleave', () => {
+        gsap.to(link, { scale: 1, duration: 0.35 });
+    });
+});
+
+const confettiBadges = document.querySelectorAll('[data-confetti-badge]');
+confettiBadges.forEach(badge => {
+    badge.addEventListener('click', () => {
+        for (let i = 0; i < 60; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = badge.offsetLeft + 'px';
+            confetti.style.top = badge.offsetTop + 'px';
+            confetti.style.background = ['#8A2BE2', '#4169E1', '#E6E6FA'][Math.floor(Math.random() * 3)];
+            document.body.appendChild(confetti);
+            gsap.to(confetti, {
+                x: Math.random() * 220 - 110,
+                y: Math.random() * 220 - 110,
+                opacity: 0,
+                rotation: Math.random() * 360,
+                duration: 1.2,
+                onComplete: () => confetti.remove()
+            });
+        }
+    });
+});
+
+const name = "Sanskrati Shukla";
+    const nameSpan = document.getElementById('typing-name');
+    // const cursor = document.querySelector('.cursor');
+    let index = 0;
+
+    function typeEffect() {
+        if (index < name.length) {
+            nameSpan.textContent += name.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100);
+        }
+    }
+
+    // Start typing on load
+    typeEffect();
+
+    // Cursor blinking
+    setInterval(() => {
+        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+    }, 500);
+
+
+// Dark/Light mode toggle logic
+const toggleBtn = document.getElementById("theme-toggle");
+const icon = document.getElementById("theme-icon");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Change icon
+    if (document.body.classList.contains("dark-mode")) {
+        icon.classList.remove("bi-moon-fill");
+        icon.classList.add("bi-sun-fill");
+        toggleBtn.classList.remove("btn-outline-dark");
+        toggleBtn.classList.add("btn-outline-light");
+    } else {
+        icon.classList.remove("bi-sun-fill");
+        icon.classList.add("bi-moon-fill");
+        toggleBtn.classList.remove("btn-outline-light");
+        toggleBtn.classList.add("btn-outline-dark");
+    }
 });
