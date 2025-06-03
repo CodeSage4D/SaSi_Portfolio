@@ -682,7 +682,7 @@ body.dark-mode #theme-toggle:hover {
     margin-right: 0.25rem;          /* Slightly tighter spacing */
 }
 
-
+/* we change and adjsut icon size from here */
 .skill-img {
     width: 30%;
     height: 40px; /* Reduced height */
