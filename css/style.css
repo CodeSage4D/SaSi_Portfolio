@@ -676,10 +676,20 @@ body.dark-mode #theme-toggle:hover {
     box-shadow: 0 15px 30px var(--glow-shadow);
 }
 
+.skill-card .card-title i,
+.badge i {
+    font-size: 0.45rem !important;  /* Reduced more */
+    margin-right: 0.25rem;          /* Slightly tighter spacing */
+}
+
+
 .skill-img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+    width: 70%;
+    height: 100px; /* Reduced height */
+    object-fit: contain; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
 }
 
 .skill-card .card-body {
@@ -698,12 +708,12 @@ body.dark-mode #theme-toggle:hover {
 }
 
 .badge {
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
+    font-size: 0.95rem; /* Slightly smaller */
+    padding: 0.6rem 0.9rem; /* More compact */
     border-radius: 50px;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     transition: transform 0.3s ease;
 }
 
@@ -731,6 +741,7 @@ body.dark-mode #theme-toggle:hover {
     stroke-dashoffset: 283;
     transition: stroke-dashoffset 1s ease;
 }
+
 
 /* Projects Section */
 #projects {
