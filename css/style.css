@@ -684,8 +684,8 @@ body.dark-mode #theme-toggle:hover {
 
 
 .skill-img {
-    width: 70%;
-    height: 100px; /* Reduced height */
+    width: 30%;
+    height: 40px; /* Reduced height */
     object-fit: contain; /* Maintain aspect ratio */
     display: block;
     margin: 0 auto;
