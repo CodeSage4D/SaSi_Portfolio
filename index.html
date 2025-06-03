@@ -571,120 +571,211 @@
             </div>
         </div>
     </section>
-    <section id="projects" class="section py-5">
+    <section id="skills" class="section py-5">
         <div class="container">
-            <h2 class="section-header display-5 fw-bold mb-4 slide-slow"><i class="bi bi-folder fs-2 me-3"></i>Projects
+            <h2 class="section-header display-5 fw-bold mb-4 slide-slow">
+                <i class="material-symbols-outlined align-middle me-2">construction</i>Technical Expertise
             </h2>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#home">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
-                </ol>
-            </nav>
-            <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Skills Carousel -->
+            <div id="skillsCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="card project-card shadow-lg glow-slow" data-project="1">
-                            <img src="./img/projects/task.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                                alt="Task Manager CLI interface" class="card-img-top img-thumbnail zoom-slow"
-                                loading="lazy">
-                            <div class="card-body">
-                                <h4 class="card-title">Task Manager CLI</h4>
-                                <p class="card-text">Tags: Python, CLI, Automation</p>
-                                <p class="card-text">A command-line tool for efficient task management with priority
-                                    sorting and reminders.</p>
-                                <button class="btn btn-primary btn-sm bounce-slow" data-bs-toggle="modal"
-                                    data-bs-target="#projectModal" data-project="1"
-                                    aria-label="View Task Manager CLI Details">View Details</button>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                        class="skill-img" alt="Python">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Python</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 92%">92%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                                        class="skill-img" alt="Java">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Java</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 88%">88%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
+                                        class="skill-img" alt="C">
+                                    <div class="card-body">
+                                        <h4 class="card-title">C</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 85%">85%</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="card project-card shadow-lg glow-slow" data-project="2">
-                            <img src="./img/projects/portfolio.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                                alt="Portfolio website screenshot" class="card-img-top img-thumbnail zoom-slow"
-                                loading="lazy">
-                            <div class="card-body">
-                                <h4 class="card-title">Portfolio</h4>
-                                <p class="card-text">Tags: HTML, CSS, JavaScript, Three.js</p>
-                                <p class="card-text">Dynamic portfolio website with 3D animations and responsive design.
-                                </p>
-                                <button class="btn btn-primary btn-sm bounce-slow" data-bs-toggle="modal"
-                                    data-bs-target="#projectModal" data-project="2"
-                                    aria-label="View Portfolio Details">View Details</button>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                                        class="skill-img" alt="C++">
+                                    <div class="card-body">
+                                        <h4 class="card-title">C++</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 90%">90%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                        class="skill-img" alt="JavaScript">
+                                    <div class="card-body">
+                                        <h4 class="card-title">JavaScript</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 80%">80%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                        class="skill-img" alt="HTML">
+                                    <div class="card-body">
+                                        <h4 class="card-title">HTML</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 95%">95%</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="card project-card shadow-lg glow-slow" data-project="3">
-                            <img src="./img/projects/data.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                                alt="Data Visualization Dashboard screenshot"
-                                class="card-img-top img-thumbnail zoom-slow" loading="lazy">
-                            <div class="card-body">
-                                <h4 class="card-title">Data Visualization Dashboard</h4>
-                                <p class="card-text">Tags: Python, Matplotlib, Flask</p>
-                                <p class="card-text">An interactive dashboard for real-time data analysis and
-                                    visualization.</p>
-                                <button class="btn btn-primary btn-sm bounce-slow" data-bs-toggle="modal"
-                                    data-bs-target="#projectModal" data-project="3"
-                                    aria-label="View Data Visualization Dashboard Details">View Details</button>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                                        class="skill-img" alt="CSS">
+                                    <div class="card-body">
+                                        <h4 class="card-title">CSS</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 90%">90%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                        class="skill-img" alt="SQL">
+                                    <div class="card-body">
+                                        <h4 class="card-title">SQL</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 85%">85%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
+                                        class="skill-img" alt="NumPy">
+                                    <div class="card-body">
+                                        <h4 class="card-title">NumPy</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 85%">85%</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="card project-card shadow-lg glow-slow" data-project="4">
-                            <img src="./img/projects/algo.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                                alt="Algorithm Library code snippet" class="card-img-top img-thumbnail zoom-slow"
-                                loading="lazy">
-                            <div class="card-body">
-                                <h4 class="card-title">Algorithm Library</h4>
-                                <p class="card-text">Tags: C++, Competitive Programming</p>
-                                <p class="card-text">A comprehensive library of optimized algorithms for competitive
-                                    coding.</p>
-                                <button class="btn btn-primary btn-sm bounce-slow" data-bs-toggle="modal"
-                                    data-bs-target="#projectModal" data-project="4"
-                                    aria-label="View Algorithm Library Details">View Details</button>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                                        class="skill-img" alt="Pandas">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Pandas</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 88%">88%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                                        class="skill-img" alt="TensorFlow">
+                                    <div class="card-body">
+                                        <h4 class="card-title">TensorFlow</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 80%">80%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://img.icons8.com/color/96/artificial-intelligence.png"
+                                        class="skill-img" alt="AI">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Artificial Intelligence</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 87%">87%</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="card project-card shadow-lg glow-slow" data-project="5">
-                            <img src="./img/projects/ecommerce.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                                alt="E-commerce Platform screenshot" class="card-img-top img-thumbnail zoom-slow"
-                                loading="lazy">
-                            <div class="card-body">
-                                <h4 class="card-title">E-commerce Platform</h4>
-                                <p class="card-text">Tags: Full-Stack, React, Node.js</p>
-                                <p class="card-text">A fully functional e-commerce platform with payment integration.
-                                </p>
-                                <button class="btn btn-primary btn-sm bounce-slow" data-bs-toggle="modal"
-                                    data-bs-target="#projectModal" data-project="5"
-                                    aria-label="View E-commerce Platform Details">View Details</button>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://img.icons8.com/color/96/combo-chart.png" class="skill-img"
+                                        alt="Power BI">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Power BI</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 75%">75%</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card project-card shadow-lg glow-slow" data-project="6">
-                            <img src="./img/projects/chatbot.jpg" onerror="this.src='https://via.placeholder.com/250'"
-                                alt="AI Chatbot interface" class="card-img-top img-thumbnail zoom-slow" loading="lazy">
-                            <div class="card-body">
-                                <h4 class="card-title">AI-Powered Chatbot</h4>
-                                <p class="card-text">Tags: Python, NLP, TensorFlow</p>
-                                <p class="card-text">An intelligent chatbot for customer support automation.</p>
-                                <button class="btn btn-primary btn-sm bounce-slow" data-bs-toggle="modal"
-                                    data-bs-target="#projectModal" data-project="6"
-                                    aria-label="View AI-Powered Chatbot Details">View Details</button>
+                            <div class="col-md-6">
+                                <div class="card skill-card h-100 text-center">
+                                    <img src="https://img.icons8.com/color/96/ms-powerpoint.png" class="skill-img"
+                                        alt="PowerPoint">
+                                    <div class="card-body">
+                                        <h4 class="card-title">PowerPoint</h4>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 93%">93%</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel"
-                    data-bs-slide="prev" aria-label="Previous Project">
+                <button class="carousel-control-prev" type="button" data-bs-target="#skillsCarousel"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel"
-                    data-bs-slide="next" aria-label="Next Project">
+                <button class="carousel-control-next" type="button" data-bs-target="#skillsCarousel"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -744,10 +835,38 @@
             </div>
         </div>
     </section>
+    <section id="skills" class="section py-5">
+        <div class="container">
+            <h2 class="section-header display-5 fw-bold mb-4 slide-slow">
+                <i class="material-symbols-outlined align-middle me-2">construction</i>Technical Expertise
+            </h2>
+
+            <!-- Skills Carousel -->
+            <div id="skillsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Existing carousel items remain unchanged -->
+                    <!-- ... -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#skillsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#skillsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section Starts -->
     <section id="blog" class="section py-5">
         <div class="container">
-            <h2 class="section-header display-5 fw-bold mb-4 slide-slow"><i
-                    class="bi bi-journal-text fs-4 me-2"></i>Blog Highlights</h2>
+            <h2 class="section-header display-5 fw-bold mb-4 slide-slow">
+                <i class="bi bi-journal-text fs-4 me-2"></i>Blog Highlights
+            </h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#home">Home</a></li>
@@ -764,8 +883,7 @@
                             <h4 class="card-title">Mastering Data Structures in C++</h4>
                             <p class="card-text">Explore advanced techniques for optimizing data structures in
                                 competitive programming.</p>
-                            <a href="#blog-post-1" class="btn btn-primary bounce-slow"
-                                aria-label="Read more about mastering data structures in C++">Read More</a>
+                            <a href="#blog-post-1" class="btn btn-primary bounce-slow">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -778,8 +896,7 @@
                             <h4 class="card-title">Automating Workflows with Python</h4>
                             <p class="card-text">Learn how to streamline repetitive tasks using Python automation
                                 scripts.</p>
-                            <a href="#blog-post-2" class="btn btn-primary bounce-slow"
-                                aria-label="Read more about automating workflows with Python">Read More</a>
+                            <a href="#blog-post-2" class="btn btn-primary bounce-slow">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -792,9 +909,7 @@
                             <h4 class="card-title">Creating Immersive 3D Web Experiences</h4>
                             <p class="card-text">Discover the power of Three.js for building interactive 3D
                                 visualizations.</p>
-                            <a href="#blog-post-3" class="btn btn-primary bounce-slow"
-                                aria-label="Read more about creating immersive 3D web experiences with Three.js">Read
-                                More</a>
+                            <a href="#blog-post-3" class="btn btn-primary bounce-slow">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -806,8 +921,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Future of AI in Software Development</h4>
                             <p class="card-text">Insights into how AI is transforming the software industry.</p>
-                            <a href="#blog-post-4" class="btn btn-primary bounce-slow"
-                                aria-label="Read more about the future of AI in software development">Read More</a>
+                            <a href="#blog-post-4" class="btn btn-primary bounce-slow">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -815,29 +929,32 @@
             <nav aria-label="Blog pagination navigation">
                 <ul class="pagination justify-content-center mt-4">
                     <li class="page-item disabled">
-                        <span class="page-link" aria-label="Previous page disabled">Previous</span>
+                        <span class="page-link">Previous</span>
                     </li>
                     <li class="page-item active" aria-current="page">
                         <span class="page-link">1</span>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#page2" aria-label="Page 2">2</a>
+                        <a class="page-link" href="#page2">2</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#page3" aria-label="Page 3">3</a>
+                        <a class="page-link" href="#page3">3</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#next" aria-label="Next page">Next</a>
+                        <a class="page-link" href="#next">Next</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </section>
+    <!-- Stats Section -->
     <section id="stats" class="section py-5">
         <div class="container">
-            <h2 class="section-header display-5 fw-bold mb-4 slide-slow"><i
-                    class="bi bi-bar-chart-fill fs-3 me-2"></i>My Stats</h2>
+            <h2 class="section-header display-5 fw-bold mb-4 slide-slow">
+                <i class="bi bi-bar-chart-fill fs-3 me-2"></i>My Stats
+            </h2>
             <div class="row g-4">
+                <!-- LeetCode Problems Solved -->
                 <div class="col-md-3">
                     <div class="card stats-card shadow text-center h-100 glow-slow">
                         <div class="card-body">
@@ -847,6 +964,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Projects Completed -->
                 <div class="col-md-3">
                     <div class="card stats-card shadow text-center h-100 glow-slow">
                         <div class="card-body">
@@ -856,6 +974,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Certifications Earned -->
                 <div class="col-md-3">
                     <div class="card stats-card shadow text-center h-100 glow-slow">
                         <div class="card-body">
@@ -865,6 +984,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Open-Source Contributions -->
                 <div class="col-md-3">
                     <div class="card stats-card shadow text-center h-100 glow-slow">
                         <div class="card-body">
@@ -877,21 +997,27 @@
             </div>
         </div>
     </section>
+
+    <!-- Testimonials Section -->
     <section id="testimonials" class="section py-5">
         <div class="container">
-            <h2 class="section-header display-5 fw-bold mb-4 slide-slow"><i
-                    class="bi bi-quote fs-3 me-2"></i>Testimonials</h2>
+            <h2 class="section-header display-5 fw-bold mb-4 slide-slow">
+                <i class="bi bi-quote fs-3 me-2"></i>Testimonials
+            </h2>
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                    <!-- Testimonial 1 -->
                     <div class="carousel-item active">
                         <div class="card testimonial-card shadow glow-slow">
                             <div class="card-body text-center">
-                                <p class="card-text">"Sanskrati's innovative approach to 3D visualization transformed
-                                    our project!"</p>
+                                <p class="card-text">
+                                    "Sanskrati's innovative approach to 3D visualization transformed our project!"
+                                </p>
                                 <h5 class="card-title">John Doe, CTO at AURXON</h5>
                             </div>
                         </div>
                     </div>
+                    <!-- Testimonial 2 -->
                     <div class="carousel-item">
                         <div class="card testimonial-card shadow glow-slow">
                             <div class="card-body text-center">
@@ -901,6 +1027,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Carousel Controls -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
                     data-bs-slide="prev" aria-label="Previous Testimonial">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -914,11 +1041,15 @@
             </div>
         </div>
     </section>
+
+    <!-- Achievements Section -->
     <section id="achievements" class="section py-5">
         <div class="container">
-            <h2 class="section-header display-5 fw-bold mb-4 slide-slow"><i
-                    class="bi bi-trophy-fill fs-3 me-2"></i>Achievements</h2>
+            <h2 class="section-header display-5 fw-bold mb-4 slide-slow">
+                <i class="bi bi-trophy-fill fs-3 me-2"></i>Achievements
+            </h2>
             <div class="row g-4">
+                <!-- Hackathon Winner -->
                 <div class="col-md-4">
                     <div class="card achievement-card shadow h-100 glow-slow">
                         <div class="card-body text-center">
@@ -928,6 +1059,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- LeetCode Rank -->
                 <div class="col-md-4">
                     <div class="card achievement-card shadow h-100 glow-slow">
                         <div class="card-body text-center">
@@ -937,6 +1069,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- CodeChef Star -->
                 <div class="col-md-4">
                     <div class="card achievement-card shadow h-100 glow-slow">
                         <div class="card-body text-center">
@@ -949,26 +1082,33 @@
             </div>
         </div>
     </section>
+
+    <!-- Clients Section -->
     <section id="clients" class="section py-5">
         <div class="container">
-            <h2 class="section-header display-5 fw-bold mb-4 slide-slow"><i
-                    class="bi bi-people-fill fs-3 me-2"></i>Clients</h2>
+            <h2 class="section-header display-5 fw-bold mb-4 slide-slow">
+                <i class="bi bi-people-fill fs-3 me-2"></i>Clients
+            </h2>
             <div class="row g-4">
+                <!-- Client 1 -->
                 <div class="col-6 col-md-3">
                     <img src="./img/clients/logo-aurxon.png" alt="AURXON company logo"
                         class="client-logo img-fluid zoom-slow" loading="lazy"
                         onerror="this.src='https://via.placeholder.com/100'">
                 </div>
+                <!-- Client 2 -->
                 <div class="col-6 col-md-3">
                     <img src="./img/clients/logo-techcorp.png" alt="TechCorp company logo"
                         class="client-logo img-fluid zoom-slow" loading="lazy"
                         onerror="this.src='https://via.placeholder.com/100'">
                 </div>
+                <!-- Client 3 -->
                 <div class="col-6 col-md-3">
                     <img src="./img/clients/logo-innovate.png" alt="Innovate company logo"
                         class="client-logo img-fluid zoom-slow" loading="lazy"
                         onerror="this.src='https://via.placeholder.com/100'">
                 </div>
+                <!-- Client 4 -->
                 <div class="col-6 col-md-3">
                     <img src="./img/clients/logo-startup.png" alt="Startup company logo"
                         class="client-logo img-fluid zoom-slow" loading="lazy"
@@ -977,6 +1117,7 @@
             </div>
         </div>
     </section>
+
     <section id="faq" class="section py-5">
         <div class="container">
             <h2 class="section-header display-5 fw-bold mb-4 slide-slow"><i
@@ -1180,18 +1321,18 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // // Animate tagline
-        // gsap.from(".tagline", {
-        //     scrollTrigger: {
-        //         trigger: ".tagline",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     y: 30,
-        //     opacity: 0,
-        //     duration: 1.2,
-        //     ease: "power2.out"
-        // });
+        // Animate tagline
+        gsap.from(".tagline", {
+            scrollTrigger: {
+                trigger: ".tagline",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.out"
+        });
 
         // Animate carousel
         gsap.from("#slider-content", {
